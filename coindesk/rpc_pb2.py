@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='rpc.proto',
   package='lnrpc',
   syntax='proto3',
-  serialized_pb=_b('\n\trpc.proto\x12\x05lnrpc\x1a\x1cgoogle/api/annotations.proto\"\xf1\x01\n\x0bTransaction\x12\x18\n\x07tx_hash\x18\x01 \x01(\tR\x07tx_hash\x12\x16\n\x06\x61mount\x18\x02 \x01(\x03R\x06\x61mount\x12,\n\x11num_confirmations\x18\x03 \x01(\x05R\x11num_confirmations\x12\x1e\n\nblock_hash\x18\x04 \x01(\tR\nblock_hash\x12\"\n\x0c\x62lock_height\x18\x05 \x01(\x05R\x0c\x62lock_height\x12\x1e\n\ntime_stamp\x18\x06 \x01(\x03R\ntime_stamp\x12\x1e\n\ntotal_fees\x18\x07 \x01(\x03R\ntotal_fees\"\x18\n\x16GetTransactionsRequest\"L\n\x12TransactionDetails\x12\x36\n\x0ctransactions\x18\x01 \x03(\x0b\x32\x12.lnrpc.TransactionR\x0ctransactions\"\x89\x01\n\x0bSendRequest\x12\x0c\n\x04\x64\x65st\x18\x01 \x01(\x0c\x12\x13\n\x0b\x64\x65st_string\x18\x02 \x01(\t\x12\x0b\n\x03\x61mt\x18\x03 \x01(\x03\x12\x14\n\x0cpayment_hash\x18\x04 \x01(\x0c\x12\x1b\n\x13payment_hash_string\x18\x05 \x01(\t\x12\x17\n\x0fpayment_request\x18\x06 \x01(\t\"\x94\x01\n\x0cSendResponse\x12$\n\rpayment_error\x18\x01 \x01(\tR\rpayment_error\x12*\n\x10payment_preimage\x18\x02 \x01(\x0cR\x10payment_preimage\x12\x32\n\rpayment_route\x18\x03 \x01(\x0b\x32\x0c.lnrpc.RouteR\rpayment_route\"\x82\x01\n\x0c\x43hannelPoint\x12\"\n\x0c\x66unding_txid\x18\x01 \x01(\x0cR\x0c\x66unding_txid\x12*\n\x10\x66unding_txid_str\x18\x02 \x01(\tR\x10\x66unding_txid_str\x12\"\n\x0coutput_index\x18\x03 \x01(\rR\x0coutput_index\">\n\x10LightningAddress\x12\x16\n\x06pubkey\x18\x01 \x01(\tR\x06pubkey\x12\x12\n\x04host\x18\x02 \x01(\tR\x04host\"\x86\x01\n\x0fSendManyRequest\x12>\n\x0c\x41\x64\x64rToAmount\x18\x01 \x03(\x0b\x32(.lnrpc.SendManyRequest.AddrToAmountEntry\x1a\x33\n\x11\x41\x64\x64rToAmountEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x03:\x02\x38\x01\"&\n\x10SendManyResponse\x12\x12\n\x04txid\x18\x01 \x01(\tR\x04txid\"0\n\x10SendCoinsRequest\x12\x0c\n\x04\x61\x64\x64r\x18\x01 \x01(\t\x12\x0e\n\x06\x61mount\x18\x02 \x01(\x03\"\'\n\x11SendCoinsResponse\x12\x12\n\x04txid\x18\x01 \x01(\tR\x04txid\"\x98\x01\n\x11NewAddressRequest\x12\x32\n\x04type\x18\x01 \x01(\x0e\x32$.lnrpc.NewAddressRequest.AddressType\"O\n\x0b\x41\x64\x64ressType\x12\x17\n\x13WITNESS_PUBKEY_HASH\x10\x00\x12\x16\n\x12NESTED_PUBKEY_HASH\x10\x01\x12\x0f\n\x0bPUBKEY_HASH\x10\x02\"\x1a\n\x18NewWitnessAddressRequest\".\n\x12NewAddressResponse\x12\x18\n\x07\x61\x64\x64ress\x18\x01 \x01(\tR\x07\x61\x64\x64ress\"&\n\x12SignMessageRequest\x12\x10\n\x03msg\x18\x01 \x01(\x0cR\x03msg\"3\n\x13SignMessageResponse\x12\x1c\n\tsignature\x18\x01 \x01(\tR\tsignature\"F\n\x14VerifyMessageRequest\x12\x10\n\x03msg\x18\x01 \x01(\x0cR\x03msg\x12\x1c\n\tsignature\x18\x02 \x01(\tR\tsignature\"E\n\x15VerifyMessageResponse\x12\x14\n\x05valid\x18\x01 \x01(\x08R\x05valid\x12\x16\n\x06pubkey\x18\x02 \x01(\tR\x06pubkey\"I\n\x12\x43onnectPeerRequest\x12%\n\x04\x61\x64\x64r\x18\x01 \x01(\x0b\x32\x17.lnrpc.LightningAddress\x12\x0c\n\x04perm\x18\x02 \x01(\x08\"/\n\x13\x43onnectPeerResponse\x12\x18\n\x07peer_id\x18\x01 \x01(\x05R\x07peer_id\"1\n\x15\x44isconnectPeerRequest\x12\x18\n\x07pub_key\x18\x01 \x01(\tR\x07pub_key\"\x18\n\x16\x44isconnectPeerResponse\"\xb2\x01\n\x04HTLC\x12\x1a\n\x08incoming\x18\x01 \x01(\x08R\x08incoming\x12\x16\n\x06\x61mount\x18\x02 \x01(\x03R\x06\x61mount\x12\x1c\n\thash_lock\x18\x03 \x01(\x0cR\thash_lock\x12,\n\x11\x65xpiration_height\x18\x04 \x01(\rR\x11\x65xpiration_height\x12*\n\x10revocation_delay\x18\x05 \x01(\rR\x10revocation_delay\"\xcc\x04\n\rActiveChannel\x12\x16\n\x06\x61\x63tive\x18\x01 \x01(\x08R\x06\x61\x63tive\x12$\n\rremote_pubkey\x18\x02 \x01(\tR\rremote_pubkey\x12$\n\rchannel_point\x18\x03 \x01(\tR\rchannel_point\x12\x18\n\x07\x63han_id\x18\x04 \x01(\x04R\x07\x63han_id\x12\x1a\n\x08\x63\x61pacity\x18\x05 \x01(\x03R\x08\x63\x61pacity\x12$\n\rlocal_balance\x18\x06 \x01(\x03R\rlocal_balance\x12&\n\x0eremote_balance\x18\x07 \x01(\x03R\x0eremote_balance\x12\x1e\n\ncommit_fee\x18\x08 \x01(\x03R\ncommit_fee\x12$\n\rcommit_weight\x18\t \x01(\x03R\rcommit_weight\x12\x1e\n\nfee_per_kw\x18\n \x01(\x03R\nfee_per_kw\x12,\n\x11unsettled_balance\x18\x0b \x01(\x03R\x11unsettled_balance\x12\x30\n\x13total_satoshis_sent\x18\x0c \x01(\x03R\x13total_satoshis_sent\x12\x38\n\x17total_satoshis_received\x18\r \x01(\x03R\x17total_satoshis_received\x12 \n\x0bnum_updates\x18\x0e \x01(\x04R\x0bnum_updates\x12\x31\n\rpending_htlcs\x18\x0f \x03(\x0b\x32\x0b.lnrpc.HTLCR\rpending_htlcs\"\x15\n\x13ListChannelsRequest\"H\n\x14ListChannelsResponse\x12\x30\n\x08\x63hannels\x18\x0b \x03(\x0b\x32\x14.lnrpc.ActiveChannelR\x08\x63hannels\"\x84\x02\n\x04Peer\x12\x18\n\x07pub_key\x18\x01 \x01(\tR\x07pub_key\x12\x18\n\x07peer_id\x18\x02 \x01(\x05R\x07peer_id\x12\x18\n\x07\x61\x64\x64ress\x18\x03 \x01(\tR\x07\x61\x64\x64ress\x12\x1e\n\nbytes_sent\x18\x04 \x01(\x04R\nbytes_sent\x12\x1e\n\nbytes_recv\x18\x05 \x01(\x04R\nbytes_recv\x12\x1a\n\x08sat_sent\x18\x06 \x01(\x03R\x08sat_sent\x12\x1a\n\x08sat_recv\x18\x07 \x01(\x03R\x08sat_recv\x12\x18\n\x07inbound\x18\x08 \x01(\x08R\x07inbound\x12\x1c\n\tping_time\x18\t \x01(\x03R\tping_time\"\x12\n\x10ListPeersRequest\"6\n\x11ListPeersResponse\x12!\n\x05peers\x18\x01 \x03(\x0b\x32\x0b.lnrpc.PeerR\x05peers\"\x10\n\x0eGetInfoRequest\"\xf5\x02\n\x0fGetInfoResponse\x12(\n\x0fidentity_pubkey\x18\x01 \x01(\tR\x0fidentity_pubkey\x12\x14\n\x05\x61lias\x18\x02 \x01(\tR\x05\x61lias\x12\x32\n\x14num_pending_channels\x18\x03 \x01(\rR\x14num_pending_channels\x12\x30\n\x13num_active_channels\x18\x04 \x01(\rR\x13num_active_channels\x12\x1c\n\tnum_peers\x18\x05 \x01(\rR\tnum_peers\x12\"\n\x0c\x62lock_height\x18\x06 \x01(\rR\x0c\x62lock_height\x12\x1e\n\nblock_hash\x18\x08 \x01(\tR\nblock_hash\x12(\n\x0fsynced_to_chain\x18\t \x01(\x08R\x0fsynced_to_chain\x12\x18\n\x07testnet\x18\n \x01(\x08R\x07testnet\x12\x16\n\x06\x63hains\x18\x0b \x03(\tR\x06\x63hains\"U\n\x12\x43onfirmationUpdate\x12\x11\n\tblock_sha\x18\x01 \x01(\x0c\x12\x14\n\x0c\x62lock_height\x18\x02 \x01(\x05\x12\x16\n\x0enum_confs_left\x18\x03 \x01(\r\"N\n\x11\x43hannelOpenUpdate\x12\x39\n\rchannel_point\x18\x01 \x01(\x0b\x32\x13.lnrpc.ChannelPointR\rchannel_point\"R\n\x12\x43hannelCloseUpdate\x12\"\n\x0c\x63losing_txid\x18\x01 \x01(\x0cR\x0c\x63losing_txid\x12\x18\n\x07success\x18\x02 \x01(\x08R\x07success\"d\n\x13\x43loseChannelRequest\x12*\n\rchannel_point\x18\x01 \x01(\x0b\x32\x13.lnrpc.ChannelPoint\x12\x12\n\ntime_limit\x18\x02 \x01(\x03\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\"\xd9\x01\n\x11\x43loseStatusUpdate\x12<\n\rclose_pending\x18\x01 \x01(\x0b\x32\x14.lnrpc.PendingUpdateH\x00R\rclose_pending\x12?\n\x0c\x63onfirmation\x18\x02 \x01(\x0b\x32\x19.lnrpc.ConfirmationUpdateH\x00R\x0c\x63onfirmation\x12;\n\nchan_close\x18\x03 \x01(\x0b\x32\x19.lnrpc.ChannelCloseUpdateH\x00R\nchan_closeB\x08\n\x06update\"G\n\rPendingUpdate\x12\x12\n\x04txid\x18\x01 \x01(\x0cR\x04txid\x12\"\n\x0coutput_index\x18\x02 \x01(\rR\x0coutput_index\"\xfc\x01\n\x12OpenChannelRequest\x12&\n\x0etarget_peer_id\x18\x01 \x01(\x05R\x0etarget_peer_id\x12 \n\x0bnode_pubkey\x18\x02 \x01(\x0cR\x0bnode_pubkey\x12.\n\x12node_pubkey_string\x18\x03 \x01(\tR\x12node_pubkey_string\x12\x32\n\x14local_funding_amount\x18\x04 \x01(\x03R\x14local_funding_amount\x12\x1a\n\x08push_sat\x18\x05 \x01(\x03R\x08push_sat\x12\x1c\n\tnum_confs\x18\x06 \x01(\rR\tnum_confs\"\xd3\x01\n\x10OpenStatusUpdate\x12:\n\x0c\x63han_pending\x18\x01 \x01(\x0b\x32\x14.lnrpc.PendingUpdateH\x00R\x0c\x63han_pending\x12?\n\x0c\x63onfirmation\x18\x02 \x01(\x0b\x32\x19.lnrpc.ConfirmationUpdateH\x00R\x0c\x63onfirmation\x12\x38\n\tchan_open\x18\x03 \x01(\x0b\x32\x18.lnrpc.ChannelOpenUpdateH\x00R\tchan_openB\x08\n\x06update\"\x17\n\x15PendingChannelRequest\"\xfe\t\n\x16PendingChannelResponse\x12\x30\n\x13total_limbo_balance\x18\x01 \x01(\x03R\x13total_limbo_balance\x12\x66\n\x15pending_open_channels\x18\x02 \x03(\x0b\x32\x30.lnrpc.PendingChannelResponse.PendingOpenChannelR\x15pending_open_channels\x12g\n\x18pending_closing_channels\x18\x03 \x03(\x0b\x32+.lnrpc.PendingChannelResponse.ClosedChannelR\x18pending_closing_channels\x12x\n\x1epending_force_closing_channels\x18\x04 \x03(\x0b\x32\x30.lnrpc.PendingChannelResponse.ForceClosedChannelR\x1epending_force_closing_channels\x1a\xca\x01\n\x0ePendingChannel\x12(\n\x0fremote_node_pub\x18\x01 \x01(\tR\x0fremote_node_pub\x12$\n\rchannel_point\x18\x02 \x01(\tR\rchannel_point\x12\x1a\n\x08\x63\x61pacity\x18\x03 \x01(\x03R\x08\x63\x61pacity\x12$\n\rlocal_balance\x18\x04 \x01(\x03R\rlocal_balance\x12&\n\x0eremote_balance\x18\x05 \x01(\x03R\x0eremote_balance\x1a\xa0\x02\n\x12PendingOpenChannel\x12\x46\n\x07\x63hannel\x18\x01 \x01(\x0b\x32,.lnrpc.PendingChannelResponse.PendingChannelR\x07\x63hannel\x12\x30\n\x13\x63onfirmation_height\x18\x02 \x01(\rR\x13\x63onfirmation_height\x12*\n\x10\x62locks_till_open\x18\x03 \x01(\rR\x10\x62locks_till_open\x12\x1e\n\ncommit_fee\x18\x04 \x01(\x03R\ncommit_fee\x12$\n\rcommit_weight\x18\x05 \x01(\x03R\rcommit_weight\x12\x1e\n\nfee_per_kw\x18\x06 \x01(\x03R\nfee_per_kw\x1ar\n\rClosedChannel\x12=\n\x07\x63hannel\x18\x01 \x01(\x0b\x32,.lnrpc.PendingChannelResponse.PendingChannel\x12\"\n\x0c\x63losing_txid\x18\x02 \x01(\tR\x0c\x63losing_txid\x1a\x82\x02\n\x12\x46orceClosedChannel\x12\x46\n\x07\x63hannel\x18\x01 \x01(\x0b\x32,.lnrpc.PendingChannelResponse.PendingChannelR\x07\x63hannel\x12\"\n\x0c\x63losing_txid\x18\x02 \x01(\tR\x0c\x63losing_txid\x12$\n\rlimbo_balance\x18\x03 \x01(\x03R\rlimbo_balance\x12(\n\x0fmaturity_height\x18\x04 \x01(\rR\x0fmaturity_height\x12\x30\n\x13\x62locks_til_maturity\x18\x05 \x01(\rR\x13\x62locks_til_maturity\",\n\x14WalletBalanceRequest\x12\x14\n\x0cwitness_only\x18\x01 \x01(\x08\"1\n\x15WalletBalanceResponse\x12\x18\n\x07\x62\x61lance\x18\x01 \x01(\x03R\x07\x62\x61lance\"\x17\n\x15\x43hannelBalanceRequest\"2\n\x16\x43hannelBalanceResponse\x12\x18\n\x07\x62\x61lance\x18\x01 \x01(\x03R\x07\x62\x61lance\"2\n\x12QueryRoutesRequest\x12\x0f\n\x07pub_key\x18\x01 \x01(\t\x12\x0b\n\x03\x61mt\x18\x02 \x01(\x03\";\n\x13QueryRoutesResponse\x12$\n\x06routes\x18\x01 \x03(\x0b\x32\x0c.lnrpc.RouteR\x06routes\"\x7f\n\x03Hop\x12\x18\n\x07\x63han_id\x18\x01 \x01(\x04R\x07\x63han_id\x12$\n\rchan_capacity\x18\x02 \x01(\x03R\rchan_capacity\x12&\n\x0e\x61mt_to_forward\x18\x03 \x01(\x03R\x0e\x61mt_to_forward\x12\x10\n\x03\x66\x65\x65\x18\x04 \x01(\x03R\x03\x66\x65\x65\"\x8f\x01\n\x05Route\x12(\n\x0ftotal_time_lock\x18\x01 \x01(\rR\x0ftotal_time_lock\x12\x1e\n\ntotal_fees\x18\x02 \x01(\x03R\ntotal_fees\x12\x1c\n\ttotal_amt\x18\x03 \x01(\x03R\ttotal_amt\x12\x1e\n\x04hops\x18\x04 \x03(\x0b\x32\n.lnrpc.HopR\x04hops\"\"\n\x0fNodeInfoRequest\x12\x0f\n\x07pub_key\x18\x01 \x01(\t\"\x80\x01\n\x08NodeInfo\x12(\n\x04node\x18\x01 \x01(\x0b\x32\x14.lnrpc.LightningNodeR\x04node\x12\"\n\x0cnum_channels\x18\x02 \x01(\rR\x0cnum_channels\x12&\n\x0etotal_capacity\x18\x03 \x01(\x03R\x0etotal_capacity\"\x93\x01\n\rLightningNode\x12 \n\x0blast_update\x18\x01 \x01(\rR\x0blast_update\x12\x18\n\x07pub_key\x18\x02 \x01(\tR\x07pub_key\x12\x14\n\x05\x61lias\x18\x03 \x01(\tR\x05\x61lias\x12\x30\n\taddresses\x18\x04 \x03(\x0b\x32\x12.lnrpc.NodeAddressR\taddresses\";\n\x0bNodeAddress\x12\x18\n\x07network\x18\x01 \x01(\tR\x07network\x12\x12\n\x04\x61\x64\x64r\x18\x02 \x01(\tR\x04\x61\x64\x64r\"\xad\x01\n\rRoutingPolicy\x12(\n\x0ftime_lock_delta\x18\x01 \x01(\rR\x0ftime_lock_delta\x12\x1a\n\x08min_htlc\x18\x02 \x01(\x03R\x08min_htlc\x12$\n\rfee_base_msat\x18\x03 \x01(\x03R\rfee_base_msat\x12\x30\n\x13\x66\x65\x65_rate_milli_msat\x18\x04 \x01(\x03R\x13\x66\x65\x65_rate_milli_msat\"\xbb\x02\n\x0b\x43hannelEdge\x12\x1e\n\nchannel_id\x18\x01 \x01(\x04R\nchannel_id\x12\x1e\n\nchan_point\x18\x02 \x01(\tR\nchan_point\x12 \n\x0blast_update\x18\x03 \x01(\rR\x0blast_update\x12\x1c\n\tnode1_pub\x18\x04 \x01(\tR\tnode1_pub\x12\x1c\n\tnode2_pub\x18\x05 \x01(\tR\tnode2_pub\x12\x1a\n\x08\x63\x61pacity\x18\x06 \x01(\x03R\x08\x63\x61pacity\x12\x38\n\x0cnode1_policy\x18\x07 \x01(\x0b\x32\x14.lnrpc.RoutingPolicyR\x0cnode1_policy\x12\x38\n\x0cnode2_policy\x18\x08 \x01(\x0b\x32\x14.lnrpc.RoutingPolicyR\x0cnode2_policy\"\x15\n\x13\x43hannelGraphRequest\"d\n\x0c\x43hannelGraph\x12*\n\x05nodes\x18\x01 \x03(\x0b\x32\x14.lnrpc.LightningNodeR\x05nodes\x12(\n\x05\x65\x64ges\x18\x02 \x03(\x0b\x32\x12.lnrpc.ChannelEdgeR\x05\x65\x64ges\"\"\n\x0f\x43hanInfoRequest\x12\x0f\n\x07\x63han_id\x18\x01 \x01(\x04\"\x14\n\x12NetworkInfoRequest\"\x83\x03\n\x0bNetworkInfo\x12&\n\x0egraph_diameter\x18\x01 \x01(\rR\x0egraph_diameter\x12&\n\x0e\x61vg_out_degree\x18\x02 \x01(\x01R\x0e\x61vg_out_degree\x12&\n\x0emax_out_degree\x18\x03 \x01(\rR\x0emax_out_degree\x12\x1c\n\tnum_nodes\x18\x04 \x01(\rR\tnum_nodes\x12\"\n\x0cnum_channels\x18\x05 \x01(\rR\x0cnum_channels\x12\x36\n\x16total_network_capacity\x18\x06 \x01(\x03R\x16total_network_capacity\x12*\n\x10\x61vg_channel_size\x18\x07 \x01(\x01R\x10\x61vg_channel_size\x12*\n\x10min_channel_size\x18\x08 \x01(\x03R\x10min_channel_size\x12*\n\x10max_channel_size\x18\t \x01(\x03R\x10max_channel_size\"\r\n\x0bStopRequest\"\x0e\n\x0cStopResponse\"\x1b\n\x19GraphTopologySubscription\"\xa3\x01\n\x13GraphTopologyUpdate\x12\'\n\x0cnode_updates\x18\x01 \x03(\x0b\x32\x11.lnrpc.NodeUpdate\x12\x31\n\x0f\x63hannel_updates\x18\x02 \x03(\x0b\x32\x18.lnrpc.ChannelEdgeUpdate\x12\x30\n\x0c\x63losed_chans\x18\x03 \x03(\x0b\x32\x1a.lnrpc.ClosedChannelUpdate\"]\n\nNodeUpdate\x12\x11\n\taddresses\x18\x01 \x03(\t\x12\x14\n\x0cidentity_key\x18\x02 \x01(\t\x12\x17\n\x0fglobal_features\x18\x03 \x01(\x0c\x12\r\n\x05\x61lias\x18\x04 \x01(\t\"\xc0\x01\n\x11\x43hannelEdgeUpdate\x12\x0f\n\x07\x63han_id\x18\x01 \x01(\x04\x12\'\n\nchan_point\x18\x02 \x01(\x0b\x32\x13.lnrpc.ChannelPoint\x12\x10\n\x08\x63\x61pacity\x18\x03 \x01(\x03\x12,\n\x0erouting_policy\x18\x04 \x01(\x0b\x32\x14.lnrpc.RoutingPolicy\x12\x18\n\x10\x61\x64vertising_node\x18\x05 \x01(\t\x12\x17\n\x0f\x63onnecting_node\x18\x06 \x01(\t\"x\n\x13\x43losedChannelUpdate\x12\x0f\n\x07\x63han_id\x18\x01 \x01(\x04\x12\x10\n\x08\x63\x61pacity\x18\x02 \x01(\x03\x12\x15\n\rclosed_height\x18\x03 \x01(\r\x12\'\n\nchan_point\x18\x04 \x01(\x0b\x32\x13.lnrpc.ChannelPoint\"$\n\x0fSetAliasRequest\x12\x11\n\tnew_alias\x18\x01 \x01(\t\"\x12\n\x10SetAliasResponse\"\x91\x02\n\x07Invoice\x12\x12\n\x04memo\x18\x01 \x01(\tR\x04memo\x12\x18\n\x07receipt\x18\x02 \x01(\x0cR\x07receipt\x12\x1e\n\nr_preimage\x18\x03 \x01(\x0cR\nr_preimage\x12\x16\n\x06r_hash\x18\x04 \x01(\x0cR\x06r_hash\x12\x14\n\x05value\x18\x05 \x01(\x03R\x05value\x12\x18\n\x07settled\x18\x06 \x01(\x08R\x07settled\x12$\n\rcreation_date\x18\x07 \x01(\x03R\rcreation_date\x12 \n\x0bsettle_date\x18\x08 \x01(\x03R\x0bsettle_date\x12(\n\x0fpayment_request\x18\t \x01(\tR\x0fpayment_request\"V\n\x12\x41\x64\x64InvoiceResponse\x12\x16\n\x06r_hash\x18\x01 \x01(\x0cR\x06r_hash\x12(\n\x0fpayment_request\x18\x02 \x01(\tR\x0fpayment_request\"E\n\x0bPaymentHash\x12\x1e\n\nr_hash_str\x18\x01 \x01(\tR\nr_hash_str\x12\x16\n\x06r_hash\x18\x02 \x01(\x0cR\x06r_hash\"*\n\x12ListInvoiceRequest\x12\x14\n\x0cpending_only\x18\x01 \x01(\x08\"A\n\x13ListInvoiceResponse\x12*\n\x08invoices\x18\x01 \x03(\x0b\x32\x0e.lnrpc.InvoiceR\x08invoices\"\x15\n\x13InvoiceSubscription\"\x8f\x01\n\x07Payment\x12\"\n\x0cpayment_hash\x18\x01 \x01(\tR\x0cpayment_hash\x12\x14\n\x05value\x18\x02 \x01(\x03R\x05value\x12$\n\rcreation_date\x18\x03 \x01(\x03R\rcreation_date\x12\x12\n\x04path\x18\x04 \x03(\tR\x04path\x12\x10\n\x03\x66\x65\x65\x18\x05 \x01(\x03R\x03\x66\x65\x65\"\x15\n\x13ListPaymentsRequest\"B\n\x14ListPaymentsResponse\x12*\n\x08payments\x18\x01 \x03(\x0b\x32\x0e.lnrpc.PaymentR\x08payments\"\x1a\n\x18\x44\x65leteAllPaymentsRequest\"\x1b\n\x19\x44\x65leteAllPaymentsResponse\"5\n\x11\x44\x65\x62ugLevelRequest\x12\x0c\n\x04show\x18\x01 \x01(\x08\x12\x12\n\nlevel_spec\x18\x02 \x01(\t\"6\n\x12\x44\x65\x62ugLevelResponse\x12 \n\x0bsub_systems\x18\x01 \x01(\tR\x0bsub_systems\"\x1f\n\x0cPayReqString\x12\x0f\n\x07pay_req\x18\x01 \x01(\t\"r\n\x06PayReq\x12 \n\x0b\x64\x65stination\x18\x01 \x01(\tR\x0b\x64\x65stination\x12\"\n\x0cpayment_hash\x18\x02 \x01(\tR\x0cpayment_hash\x12\"\n\x0cnum_satoshis\x18\x03 \x01(\x03R\x0cnum_satoshis2\x85\x1a\n\tLightning\x12j\n\rWalletBalance\x12\x1b.lnrpc.WalletBalanceRequest\x1a\x1c.lnrpc.WalletBalanceResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/balance/blockchain\x12k\n\x0e\x43hannelBalance\x12\x1c.lnrpc.ChannelBalanceRequest\x1a\x1d.lnrpc.ChannelBalanceResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1/balance/channels\x12\x65\n\x0fGetTransactions\x12\x1d.lnrpc.GetTransactionsRequest\x1a\x19.lnrpc.TransactionDetails\"\x18\x82\xd3\xe4\x93\x02\x12\x12\x10/v1/transactions\x12[\n\tSendCoins\x12\x17.lnrpc.SendCoinsRequest\x1a\x18.lnrpc.SendCoinsResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\"\x10/v1/transactions:\x01*\x12L\n\x15SubscribeTransactions\x12\x1d.lnrpc.GetTransactionsRequest\x1a\x12.lnrpc.Transaction0\x01\x12;\n\x08SendMany\x12\x16.lnrpc.SendManyRequest\x1a\x17.lnrpc.SendManyResponse\x12\x41\n\nNewAddress\x12\x18.lnrpc.NewAddressRequest\x1a\x19.lnrpc.NewAddressResponse\x12g\n\x11NewWitnessAddress\x12\x1f.lnrpc.NewWitnessAddressRequest\x1a\x19.lnrpc.NewAddressResponse\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/v1/newaddress\x12\x44\n\x0bSignMessage\x12\x19.lnrpc.SignMessageRequest\x1a\x1a.lnrpc.SignMessageResponse\x12J\n\rVerifyMessage\x12\x1b.lnrpc.VerifyMessageRequest\x1a\x1c.lnrpc.VerifyMessageResponse\x12Z\n\x0b\x43onnectPeer\x12\x19.lnrpc.ConnectPeerRequest\x1a\x1a.lnrpc.ConnectPeerResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\"\t/v1/peers:\x01*\x12j\n\x0e\x44isconnectPeer\x12\x1c.lnrpc.DisconnectPeerRequest\x1a\x1d.lnrpc.DisconnectPeerResponse\"\x1b\x82\xd3\xe4\x93\x02\x15*\x13/v1/peers/{pub_key}\x12Q\n\tListPeers\x12\x17.lnrpc.ListPeersRequest\x1a\x18.lnrpc.ListPeersResponse\"\x11\x82\xd3\xe4\x93\x02\x0b\x12\t/v1/peers\x12M\n\x07GetInfo\x12\x15.lnrpc.GetInfoRequest\x1a\x16.lnrpc.GetInfoResponse\"\x13\x82\xd3\xe4\x93\x02\r\x12\x0b/v1/getinfo\x12l\n\x0fPendingChannels\x12\x1c.lnrpc.PendingChannelRequest\x1a\x1d.lnrpc.PendingChannelResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1/channels/pending\x12]\n\x0cListChannels\x12\x1a.lnrpc.ListChannelsRequest\x1a\x1b.lnrpc.ListChannelsResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/v1/channels\x12Z\n\x0fOpenChannelSync\x12\x19.lnrpc.OpenChannelRequest\x1a\x13.lnrpc.ChannelPoint\"\x17\x82\xd3\xe4\x93\x02\x11\"\x0c/v1/channels:\x01*\x12\x43\n\x0bOpenChannel\x12\x19.lnrpc.OpenChannelRequest\x1a\x17.lnrpc.OpenStatusUpdate0\x01\x12\x9e\x01\n\x0c\x43loseChannel\x12\x1a.lnrpc.CloseChannelRequest\x1a\x18.lnrpc.CloseStatusUpdate\"V\x82\xd3\xe4\x93\x02P*N/v1/channels/{channel_point.funding_txid}/{channel_point.output_index}/{force}0\x01\x12:\n\x0bSendPayment\x12\x12.lnrpc.SendRequest\x1a\x13.lnrpc.SendResponse(\x01\x30\x01\x12`\n\x0fSendPaymentSync\x12\x12.lnrpc.SendRequest\x1a\x13.lnrpc.SendResponse\"$\x82\xd3\xe4\x93\x02\x1e\"\x19/v1/channels/transactions:\x01*\x12P\n\nAddInvoice\x12\x0e.lnrpc.Invoice\x1a\x19.lnrpc.AddInvoiceResponse\"\x17\x82\xd3\xe4\x93\x02\x11\"\x0c/v1/invoices:\x01*\x12j\n\x0cListInvoices\x12\x19.lnrpc.ListInvoiceRequest\x1a\x1a.lnrpc.ListInvoiceResponse\"#\x82\xd3\xe4\x93\x02\x1d\x12\x1b/v1/invoices/{pending_only}\x12V\n\rLookupInvoice\x12\x12.lnrpc.PaymentHash\x1a\x0e.lnrpc.Invoice\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/v1/invoices/{r_hash_str}\x12\x61\n\x11SubscribeInvoices\x12\x1a.lnrpc.InvoiceSubscription\x1a\x0e.lnrpc.Invoice\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/invoices/subscribe0\x01\x12P\n\x0c\x44\x65\x63odePayReq\x12\x13.lnrpc.PayReqString\x1a\r.lnrpc.PayReq\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1/payreq/{pay_req}\x12]\n\x0cListPayments\x12\x1a.lnrpc.ListPaymentsRequest\x1a\x1b.lnrpc.ListPaymentsResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/v1/payments\x12l\n\x11\x44\x65leteAllPayments\x12\x1f.lnrpc.DeleteAllPaymentsRequest\x1a .lnrpc.DeleteAllPaymentsResponse\"\x14\x82\xd3\xe4\x93\x02\x0e*\x0c/v1/payments\x12S\n\rDescribeGraph\x12\x1a.lnrpc.ChannelGraphRequest\x1a\x13.lnrpc.ChannelGraph\"\x11\x82\xd3\xe4\x93\x02\x0b\x12\t/v1/graph\x12[\n\x0bGetChanInfo\x12\x16.lnrpc.ChanInfoRequest\x1a\x12.lnrpc.ChannelEdge\" \x82\xd3\xe4\x93\x02\x1a\x12\x18/v1/graph/edge/{chan_id}\x12X\n\x0bGetNodeInfo\x12\x16.lnrpc.NodeInfoRequest\x1a\x0f.lnrpc.NodeInfo\" \x82\xd3\xe4\x93\x02\x1a\x12\x18/v1/graph/node/{pub_key}\x12n\n\x0bQueryRoutes\x12\x19.lnrpc.QueryRoutesRequest\x1a\x1a.lnrpc.QueryRoutesResponse\"(\x82\xd3\xe4\x93\x02\"\x12 /v1/graph/routes/{pub_key}/{amt}\x12W\n\x0eGetNetworkInfo\x12\x19.lnrpc.NetworkInfoRequest\x1a\x12.lnrpc.NetworkInfo\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/v1/graph/info\x12\x35\n\nStopDaemon\x12\x12.lnrpc.StopRequest\x1a\x13.lnrpc.StopResponse\x12W\n\x15SubscribeChannelGraph\x12 .lnrpc.GraphTopologySubscription\x1a\x1a.lnrpc.GraphTopologyUpdate0\x01\x12;\n\x08SetAlias\x12\x16.lnrpc.SetAliasRequest\x1a\x17.lnrpc.SetAliasResponse\x12\x41\n\nDebugLevel\x12\x18.lnrpc.DebugLevelRequest\x1a\x19.lnrpc.DebugLevelResponseb\x06proto3')
+  serialized_pb=_b('\n\trpc.proto\x12\x05lnrpc\x1a\x1cgoogle/api/annotations.proto\"\'\n\x13\x43reateWalletRequest\x12\x10\n\x08password\x18\x01 \x01(\x0c\"\x16\n\x14\x43reateWalletResponse\"\'\n\x13UnlockWalletRequest\x12\x10\n\x08password\x18\x01 \x01(\x0c\"\x16\n\x14UnlockWalletResponse\"\x99\x02\n\x0bTransaction\x12\x18\n\x07tx_hash\x18\x01 \x01(\tR\x07tx_hash\x12\x16\n\x06\x61mount\x18\x02 \x01(\x03R\x06\x61mount\x12,\n\x11num_confirmations\x18\x03 \x01(\x05R\x11num_confirmations\x12\x1e\n\nblock_hash\x18\x04 \x01(\tR\nblock_hash\x12\"\n\x0c\x62lock_height\x18\x05 \x01(\x05R\x0c\x62lock_height\x12\x1e\n\ntime_stamp\x18\x06 \x01(\x03R\ntime_stamp\x12\x1e\n\ntotal_fees\x18\x07 \x01(\x03R\ntotal_fees\x12&\n\x0e\x64\x65st_addresses\x18\x08 \x03(\tR\x0e\x64\x65st_addresses\"\x18\n\x16GetTransactionsRequest\"L\n\x12TransactionDetails\x12\x36\n\x0ctransactions\x18\x01 \x03(\x0b\x32\x12.lnrpc.TransactionR\x0ctransactions\"\x89\x01\n\x0bSendRequest\x12\x0c\n\x04\x64\x65st\x18\x01 \x01(\x0c\x12\x13\n\x0b\x64\x65st_string\x18\x02 \x01(\t\x12\x0b\n\x03\x61mt\x18\x03 \x01(\x03\x12\x14\n\x0cpayment_hash\x18\x04 \x01(\x0c\x12\x1b\n\x13payment_hash_string\x18\x05 \x01(\t\x12\x17\n\x0fpayment_request\x18\x06 \x01(\t\"\x94\x01\n\x0cSendResponse\x12$\n\rpayment_error\x18\x01 \x01(\tR\rpayment_error\x12*\n\x10payment_preimage\x18\x02 \x01(\x0cR\x10payment_preimage\x12\x32\n\rpayment_route\x18\x03 \x01(\x0b\x32\x0c.lnrpc.RouteR\rpayment_route\"\x82\x01\n\x0c\x43hannelPoint\x12\"\n\x0c\x66unding_txid\x18\x01 \x01(\x0cR\x0c\x66unding_txid\x12*\n\x10\x66unding_txid_str\x18\x02 \x01(\tR\x10\x66unding_txid_str\x12\"\n\x0coutput_index\x18\x03 \x01(\rR\x0coutput_index\">\n\x10LightningAddress\x12\x16\n\x06pubkey\x18\x01 \x01(\tR\x06pubkey\x12\x12\n\x04host\x18\x02 \x01(\tR\x04host\"\xb1\x01\n\x0fSendManyRequest\x12>\n\x0c\x41\x64\x64rToAmount\x18\x01 \x03(\x0b\x32(.lnrpc.SendManyRequest.AddrToAmountEntry\x12\x13\n\x0btarget_conf\x18\x03 \x01(\x05\x12\x14\n\x0csat_per_byte\x18\x05 \x01(\x03\x1a\x33\n\x11\x41\x64\x64rToAmountEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x03:\x02\x38\x01\"&\n\x10SendManyResponse\x12\x12\n\x04txid\x18\x01 \x01(\tR\x04txid\"[\n\x10SendCoinsRequest\x12\x0c\n\x04\x61\x64\x64r\x18\x01 \x01(\t\x12\x0e\n\x06\x61mount\x18\x02 \x01(\x03\x12\x13\n\x0btarget_conf\x18\x03 \x01(\x05\x12\x14\n\x0csat_per_byte\x18\x05 \x01(\x03\"\'\n\x11SendCoinsResponse\x12\x12\n\x04txid\x18\x01 \x01(\tR\x04txid\"\x98\x01\n\x11NewAddressRequest\x12\x32\n\x04type\x18\x01 \x01(\x0e\x32$.lnrpc.NewAddressRequest.AddressType\"O\n\x0b\x41\x64\x64ressType\x12\x17\n\x13WITNESS_PUBKEY_HASH\x10\x00\x12\x16\n\x12NESTED_PUBKEY_HASH\x10\x01\x12\x0f\n\x0bPUBKEY_HASH\x10\x02\"\x1a\n\x18NewWitnessAddressRequest\".\n\x12NewAddressResponse\x12\x18\n\x07\x61\x64\x64ress\x18\x01 \x01(\tR\x07\x61\x64\x64ress\"&\n\x12SignMessageRequest\x12\x10\n\x03msg\x18\x01 \x01(\x0cR\x03msg\"3\n\x13SignMessageResponse\x12\x1c\n\tsignature\x18\x01 \x01(\tR\tsignature\"F\n\x14VerifyMessageRequest\x12\x10\n\x03msg\x18\x01 \x01(\x0cR\x03msg\x12\x1c\n\tsignature\x18\x02 \x01(\tR\tsignature\"E\n\x15VerifyMessageResponse\x12\x14\n\x05valid\x18\x01 \x01(\x08R\x05valid\x12\x16\n\x06pubkey\x18\x02 \x01(\tR\x06pubkey\"I\n\x12\x43onnectPeerRequest\x12%\n\x04\x61\x64\x64r\x18\x01 \x01(\x0b\x32\x17.lnrpc.LightningAddress\x12\x0c\n\x04perm\x18\x02 \x01(\x08\"/\n\x13\x43onnectPeerResponse\x12\x18\n\x07peer_id\x18\x01 \x01(\x05R\x07peer_id\"1\n\x15\x44isconnectPeerRequest\x12\x18\n\x07pub_key\x18\x01 \x01(\tR\x07pub_key\"\x18\n\x16\x44isconnectPeerResponse\"\x86\x01\n\x04HTLC\x12\x1a\n\x08incoming\x18\x01 \x01(\x08R\x08incoming\x12\x16\n\x06\x61mount\x18\x02 \x01(\x03R\x06\x61mount\x12\x1c\n\thash_lock\x18\x03 \x01(\x0cR\thash_lock\x12,\n\x11\x65xpiration_height\x18\x04 \x01(\rR\x11\x65xpiration_height\"\xea\x04\n\rActiveChannel\x12\x16\n\x06\x61\x63tive\x18\x01 \x01(\x08R\x06\x61\x63tive\x12$\n\rremote_pubkey\x18\x02 \x01(\tR\rremote_pubkey\x12$\n\rchannel_point\x18\x03 \x01(\tR\rchannel_point\x12\x18\n\x07\x63han_id\x18\x04 \x01(\x04R\x07\x63han_id\x12\x1a\n\x08\x63\x61pacity\x18\x05 \x01(\x03R\x08\x63\x61pacity\x12$\n\rlocal_balance\x18\x06 \x01(\x03R\rlocal_balance\x12&\n\x0eremote_balance\x18\x07 \x01(\x03R\x0eremote_balance\x12\x1e\n\ncommit_fee\x18\x08 \x01(\x03R\ncommit_fee\x12$\n\rcommit_weight\x18\t \x01(\x03R\rcommit_weight\x12\x1e\n\nfee_per_kw\x18\n \x01(\x03R\nfee_per_kw\x12,\n\x11unsettled_balance\x18\x0b \x01(\x03R\x11unsettled_balance\x12\x30\n\x13total_satoshis_sent\x18\x0c \x01(\x03R\x13total_satoshis_sent\x12\x38\n\x17total_satoshis_received\x18\r \x01(\x03R\x17total_satoshis_received\x12 \n\x0bnum_updates\x18\x0e \x01(\x04R\x0bnum_updates\x12\x31\n\rpending_htlcs\x18\x0f \x03(\x0b\x32\x0b.lnrpc.HTLCR\rpending_htlcs\x12\x1c\n\tcsv_delay\x18\x10 \x01(\rR\tcsv_delay\"\x15\n\x13ListChannelsRequest\"H\n\x14ListChannelsResponse\x12\x30\n\x08\x63hannels\x18\x0b \x03(\x0b\x32\x14.lnrpc.ActiveChannelR\x08\x63hannels\"\x84\x02\n\x04Peer\x12\x18\n\x07pub_key\x18\x01 \x01(\tR\x07pub_key\x12\x18\n\x07peer_id\x18\x02 \x01(\x05R\x07peer_id\x12\x18\n\x07\x61\x64\x64ress\x18\x03 \x01(\tR\x07\x61\x64\x64ress\x12\x1e\n\nbytes_sent\x18\x04 \x01(\x04R\nbytes_sent\x12\x1e\n\nbytes_recv\x18\x05 \x01(\x04R\nbytes_recv\x12\x1a\n\x08sat_sent\x18\x06 \x01(\x03R\x08sat_sent\x12\x1a\n\x08sat_recv\x18\x07 \x01(\x03R\x08sat_recv\x12\x18\n\x07inbound\x18\x08 \x01(\x08R\x07inbound\x12\x1c\n\tping_time\x18\t \x01(\x03R\tping_time\"\x12\n\x10ListPeersRequest\"6\n\x11ListPeersResponse\x12!\n\x05peers\x18\x01 \x03(\x0b\x32\x0b.lnrpc.PeerR\x05peers\"\x10\n\x0eGetInfoRequest\"\xf5\x02\n\x0fGetInfoResponse\x12(\n\x0fidentity_pubkey\x18\x01 \x01(\tR\x0fidentity_pubkey\x12\x14\n\x05\x61lias\x18\x02 \x01(\tR\x05\x61lias\x12\x32\n\x14num_pending_channels\x18\x03 \x01(\rR\x14num_pending_channels\x12\x30\n\x13num_active_channels\x18\x04 \x01(\rR\x13num_active_channels\x12\x1c\n\tnum_peers\x18\x05 \x01(\rR\tnum_peers\x12\"\n\x0c\x62lock_height\x18\x06 \x01(\rR\x0c\x62lock_height\x12\x1e\n\nblock_hash\x18\x08 \x01(\tR\nblock_hash\x12(\n\x0fsynced_to_chain\x18\t \x01(\x08R\x0fsynced_to_chain\x12\x18\n\x07testnet\x18\n \x01(\x08R\x07testnet\x12\x16\n\x06\x63hains\x18\x0b \x03(\tR\x06\x63hains\"U\n\x12\x43onfirmationUpdate\x12\x11\n\tblock_sha\x18\x01 \x01(\x0c\x12\x14\n\x0c\x62lock_height\x18\x02 \x01(\x05\x12\x16\n\x0enum_confs_left\x18\x03 \x01(\r\"N\n\x11\x43hannelOpenUpdate\x12\x39\n\rchannel_point\x18\x01 \x01(\x0b\x32\x13.lnrpc.ChannelPointR\rchannel_point\"R\n\x12\x43hannelCloseUpdate\x12\"\n\x0c\x63losing_txid\x18\x01 \x01(\x0cR\x0c\x63losing_txid\x12\x18\n\x07success\x18\x02 \x01(\x08R\x07success\"{\n\x13\x43loseChannelRequest\x12*\n\rchannel_point\x18\x01 \x01(\x0b\x32\x13.lnrpc.ChannelPoint\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\x12\x13\n\x0btarget_conf\x18\x03 \x01(\x05\x12\x14\n\x0csat_per_byte\x18\x05 \x01(\x03\"\xd9\x01\n\x11\x43loseStatusUpdate\x12<\n\rclose_pending\x18\x01 \x01(\x0b\x32\x14.lnrpc.PendingUpdateH\x00R\rclose_pending\x12?\n\x0c\x63onfirmation\x18\x02 \x01(\x0b\x32\x19.lnrpc.ConfirmationUpdateH\x00R\x0c\x63onfirmation\x12;\n\nchan_close\x18\x03 \x01(\x0b\x32\x19.lnrpc.ChannelCloseUpdateH\x00R\nchan_closeB\x08\n\x06update\"G\n\rPendingUpdate\x12\x12\n\x04txid\x18\x01 \x01(\x0cR\x04txid\x12\"\n\x0coutput_index\x18\x02 \x01(\rR\x0coutput_index\"\xa3\x02\n\x12OpenChannelRequest\x12&\n\x0etarget_peer_id\x18\x01 \x01(\x05R\x0etarget_peer_id\x12 \n\x0bnode_pubkey\x18\x02 \x01(\x0cR\x0bnode_pubkey\x12.\n\x12node_pubkey_string\x18\x03 \x01(\tR\x12node_pubkey_string\x12\x32\n\x14local_funding_amount\x18\x04 \x01(\x03R\x14local_funding_amount\x12\x1a\n\x08push_sat\x18\x05 \x01(\x03R\x08push_sat\x12\x13\n\x0btarget_conf\x18\x06 \x01(\x05\x12\x14\n\x0csat_per_byte\x18\x07 \x01(\x03\x12\x18\n\x07private\x18\x08 \x01(\x08R\x07private\"\xd3\x01\n\x10OpenStatusUpdate\x12:\n\x0c\x63han_pending\x18\x01 \x01(\x0b\x32\x14.lnrpc.PendingUpdateH\x00R\x0c\x63han_pending\x12?\n\x0c\x63onfirmation\x18\x02 \x01(\x0b\x32\x19.lnrpc.ConfirmationUpdateH\x00R\x0c\x63onfirmation\x12\x38\n\tchan_open\x18\x03 \x01(\x0b\x32\x18.lnrpc.ChannelOpenUpdateH\x00R\tchan_openB\x08\n\x06update\"\xcf\x01\n\x0bPendingHTLC\x12\x1a\n\x08incoming\x18\x01 \x01(\x08R\x08incoming\x12\x16\n\x06\x61mount\x18\x02 \x01(\x03R\x06\x61mount\x12\x1a\n\x08outpoint\x18\x03 \x01(\tR\x08outpoint\x12(\n\x0fmaturity_height\x18\x04 \x01(\rR\x0fmaturity_height\x12\x30\n\x13\x62locks_til_maturity\x18\x05 \x01(\x05R\x13\x62locks_til_maturity\x12\x14\n\x05stage\x18\x06 \x01(\rR\x05stage\"\x17\n\x15PendingChannelRequest\"\xe6\n\n\x16PendingChannelResponse\x12\x30\n\x13total_limbo_balance\x18\x01 \x01(\x03R\x13total_limbo_balance\x12\x66\n\x15pending_open_channels\x18\x02 \x03(\x0b\x32\x30.lnrpc.PendingChannelResponse.PendingOpenChannelR\x15pending_open_channels\x12g\n\x18pending_closing_channels\x18\x03 \x03(\x0b\x32+.lnrpc.PendingChannelResponse.ClosedChannelR\x18pending_closing_channels\x12x\n\x1epending_force_closing_channels\x18\x04 \x03(\x0b\x32\x30.lnrpc.PendingChannelResponse.ForceClosedChannelR\x1epending_force_closing_channels\x1a\xca\x01\n\x0ePendingChannel\x12(\n\x0fremote_node_pub\x18\x01 \x01(\tR\x0fremote_node_pub\x12$\n\rchannel_point\x18\x02 \x01(\tR\rchannel_point\x12\x1a\n\x08\x63\x61pacity\x18\x03 \x01(\x03R\x08\x63\x61pacity\x12$\n\rlocal_balance\x18\x04 \x01(\x03R\rlocal_balance\x12&\n\x0eremote_balance\x18\x05 \x01(\x03R\x0eremote_balance\x1a\xa0\x02\n\x12PendingOpenChannel\x12\x46\n\x07\x63hannel\x18\x01 \x01(\x0b\x32,.lnrpc.PendingChannelResponse.PendingChannelR\x07\x63hannel\x12\x30\n\x13\x63onfirmation_height\x18\x02 \x01(\rR\x13\x63onfirmation_height\x12*\n\x10\x62locks_till_open\x18\x03 \x01(\x05R\x10\x62locks_till_open\x12\x1e\n\ncommit_fee\x18\x04 \x01(\x03R\ncommit_fee\x12$\n\rcommit_weight\x18\x05 \x01(\x03R\rcommit_weight\x12\x1e\n\nfee_per_kw\x18\x06 \x01(\x03R\nfee_per_kw\x1ar\n\rClosedChannel\x12=\n\x07\x63hannel\x18\x01 \x01(\x0b\x32,.lnrpc.PendingChannelResponse.PendingChannel\x12\"\n\x0c\x63losing_txid\x18\x02 \x01(\tR\x0c\x63losing_txid\x1a\xea\x02\n\x12\x46orceClosedChannel\x12\x46\n\x07\x63hannel\x18\x01 \x01(\x0b\x32,.lnrpc.PendingChannelResponse.PendingChannelR\x07\x63hannel\x12\"\n\x0c\x63losing_txid\x18\x02 \x01(\tR\x0c\x63losing_txid\x12$\n\rlimbo_balance\x18\x03 \x01(\x03R\rlimbo_balance\x12(\n\x0fmaturity_height\x18\x04 \x01(\rR\x0fmaturity_height\x12\x30\n\x13\x62locks_til_maturity\x18\x05 \x01(\x05R\x13\x62locks_til_maturity\x12,\n\x11recovered_balance\x18\x06 \x01(\x03R\x11recovered_balance\x12\x38\n\rpending_htlcs\x18\x08 \x03(\x0b\x32\x12.lnrpc.PendingHTLCR\rpending_htlcs\",\n\x14WalletBalanceRequest\x12\x14\n\x0cwitness_only\x18\x01 \x01(\x08\"\x9d\x01\n\x15WalletBalanceResponse\x12$\n\rtotal_balance\x18\x01 \x01(\x03R\rtotal_balance\x12,\n\x11\x63onfirmed_balance\x18\x02 \x01(\x03R\x11\x63onfirmed_balance\x12\x30\n\x13unconfirmed_balance\x18\x03 \x01(\x03R\x13unconfirmed_balance\"\x17\n\x15\x43hannelBalanceRequest\"2\n\x16\x43hannelBalanceResponse\x12\x18\n\x07\x62\x61lance\x18\x01 \x01(\x03R\x07\x62\x61lance\"2\n\x12QueryRoutesRequest\x12\x0f\n\x07pub_key\x18\x01 \x01(\t\x12\x0b\n\x03\x61mt\x18\x02 \x01(\x03\";\n\x13QueryRoutesResponse\x12$\n\x06routes\x18\x01 \x03(\x0b\x32\x0c.lnrpc.RouteR\x06routes\"\x97\x01\n\x03Hop\x12\x18\n\x07\x63han_id\x18\x01 \x01(\x04R\x07\x63han_id\x12$\n\rchan_capacity\x18\x02 \x01(\x03R\rchan_capacity\x12&\n\x0e\x61mt_to_forward\x18\x03 \x01(\x03R\x0e\x61mt_to_forward\x12\x10\n\x03\x66\x65\x65\x18\x04 \x01(\x03R\x03\x66\x65\x65\x12\x16\n\x06\x65xpiry\x18\x05 \x01(\rR\x06\x65xpiry\"\x8f\x01\n\x05Route\x12(\n\x0ftotal_time_lock\x18\x01 \x01(\rR\x0ftotal_time_lock\x12\x1e\n\ntotal_fees\x18\x02 \x01(\x03R\ntotal_fees\x12\x1c\n\ttotal_amt\x18\x03 \x01(\x03R\ttotal_amt\x12\x1e\n\x04hops\x18\x04 \x03(\x0b\x32\n.lnrpc.HopR\x04hops\"\"\n\x0fNodeInfoRequest\x12\x0f\n\x07pub_key\x18\x01 \x01(\t\"\x80\x01\n\x08NodeInfo\x12(\n\x04node\x18\x01 \x01(\x0b\x32\x14.lnrpc.LightningNodeR\x04node\x12\"\n\x0cnum_channels\x18\x02 \x01(\rR\x0cnum_channels\x12&\n\x0etotal_capacity\x18\x03 \x01(\x03R\x0etotal_capacity\"\xa9\x01\n\rLightningNode\x12 \n\x0blast_update\x18\x01 \x01(\rR\x0blast_update\x12\x18\n\x07pub_key\x18\x02 \x01(\tR\x07pub_key\x12\x14\n\x05\x61lias\x18\x03 \x01(\tR\x05\x61lias\x12\x30\n\taddresses\x18\x04 \x03(\x0b\x32\x12.lnrpc.NodeAddressR\taddresses\x12\x14\n\x05\x63olor\x18\x05 \x01(\tR\x05\x63olor\";\n\x0bNodeAddress\x12\x18\n\x07network\x18\x01 \x01(\tR\x07network\x12\x12\n\x04\x61\x64\x64r\x18\x02 \x01(\tR\x04\x61\x64\x64r\"\xad\x01\n\rRoutingPolicy\x12(\n\x0ftime_lock_delta\x18\x01 \x01(\rR\x0ftime_lock_delta\x12\x1a\n\x08min_htlc\x18\x02 \x01(\x03R\x08min_htlc\x12$\n\rfee_base_msat\x18\x03 \x01(\x03R\rfee_base_msat\x12\x30\n\x13\x66\x65\x65_rate_milli_msat\x18\x04 \x01(\x03R\x13\x66\x65\x65_rate_milli_msat\"\xbb\x02\n\x0b\x43hannelEdge\x12\x1e\n\nchannel_id\x18\x01 \x01(\x04R\nchannel_id\x12\x1e\n\nchan_point\x18\x02 \x01(\tR\nchan_point\x12 \n\x0blast_update\x18\x03 \x01(\rR\x0blast_update\x12\x1c\n\tnode1_pub\x18\x04 \x01(\tR\tnode1_pub\x12\x1c\n\tnode2_pub\x18\x05 \x01(\tR\tnode2_pub\x12\x1a\n\x08\x63\x61pacity\x18\x06 \x01(\x03R\x08\x63\x61pacity\x12\x38\n\x0cnode1_policy\x18\x07 \x01(\x0b\x32\x14.lnrpc.RoutingPolicyR\x0cnode1_policy\x12\x38\n\x0cnode2_policy\x18\x08 \x01(\x0b\x32\x14.lnrpc.RoutingPolicyR\x0cnode2_policy\"\x15\n\x13\x43hannelGraphRequest\"d\n\x0c\x43hannelGraph\x12*\n\x05nodes\x18\x01 \x03(\x0b\x32\x14.lnrpc.LightningNodeR\x05nodes\x12(\n\x05\x65\x64ges\x18\x02 \x03(\x0b\x32\x12.lnrpc.ChannelEdgeR\x05\x65\x64ges\"\"\n\x0f\x43hanInfoRequest\x12\x0f\n\x07\x63han_id\x18\x01 \x01(\x04\"\x14\n\x12NetworkInfoRequest\"\x83\x03\n\x0bNetworkInfo\x12&\n\x0egraph_diameter\x18\x01 \x01(\rR\x0egraph_diameter\x12&\n\x0e\x61vg_out_degree\x18\x02 \x01(\x01R\x0e\x61vg_out_degree\x12&\n\x0emax_out_degree\x18\x03 \x01(\rR\x0emax_out_degree\x12\x1c\n\tnum_nodes\x18\x04 \x01(\rR\tnum_nodes\x12\"\n\x0cnum_channels\x18\x05 \x01(\rR\x0cnum_channels\x12\x36\n\x16total_network_capacity\x18\x06 \x01(\x03R\x16total_network_capacity\x12*\n\x10\x61vg_channel_size\x18\x07 \x01(\x01R\x10\x61vg_channel_size\x12*\n\x10min_channel_size\x18\x08 \x01(\x03R\x10min_channel_size\x12*\n\x10max_channel_size\x18\t \x01(\x03R\x10max_channel_size\"\r\n\x0bStopRequest\"\x0e\n\x0cStopResponse\"\x1b\n\x19GraphTopologySubscription\"\xa3\x01\n\x13GraphTopologyUpdate\x12\'\n\x0cnode_updates\x18\x01 \x03(\x0b\x32\x11.lnrpc.NodeUpdate\x12\x31\n\x0f\x63hannel_updates\x18\x02 \x03(\x0b\x32\x18.lnrpc.ChannelEdgeUpdate\x12\x30\n\x0c\x63losed_chans\x18\x03 \x03(\x0b\x32\x1a.lnrpc.ClosedChannelUpdate\"]\n\nNodeUpdate\x12\x11\n\taddresses\x18\x01 \x03(\t\x12\x14\n\x0cidentity_key\x18\x02 \x01(\t\x12\x17\n\x0fglobal_features\x18\x03 \x01(\x0c\x12\r\n\x05\x61lias\x18\x04 \x01(\t\"\xc0\x01\n\x11\x43hannelEdgeUpdate\x12\x0f\n\x07\x63han_id\x18\x01 \x01(\x04\x12\'\n\nchan_point\x18\x02 \x01(\x0b\x32\x13.lnrpc.ChannelPoint\x12\x10\n\x08\x63\x61pacity\x18\x03 \x01(\x03\x12,\n\x0erouting_policy\x18\x04 \x01(\x0b\x32\x14.lnrpc.RoutingPolicy\x12\x18\n\x10\x61\x64vertising_node\x18\x05 \x01(\t\x12\x17\n\x0f\x63onnecting_node\x18\x06 \x01(\t\"x\n\x13\x43losedChannelUpdate\x12\x0f\n\x07\x63han_id\x18\x01 \x01(\x04\x12\x10\n\x08\x63\x61pacity\x18\x02 \x01(\x03\x12\x15\n\rclosed_height\x18\x03 \x01(\r\x12\'\n\nchan_point\x18\x04 \x01(\x0b\x32\x13.lnrpc.ChannelPoint\"$\n\x0fSetAliasRequest\x12\x11\n\tnew_alias\x18\x01 \x01(\t\"\x12\n\x10SetAliasResponse\"\x9d\x03\n\x07Invoice\x12\x12\n\x04memo\x18\x01 \x01(\tR\x04memo\x12\x18\n\x07receipt\x18\x02 \x01(\x0cR\x07receipt\x12\x1e\n\nr_preimage\x18\x03 \x01(\x0cR\nr_preimage\x12\x16\n\x06r_hash\x18\x04 \x01(\x0cR\x06r_hash\x12\x14\n\x05value\x18\x05 \x01(\x03R\x05value\x12\x18\n\x07settled\x18\x06 \x01(\x08R\x07settled\x12$\n\rcreation_date\x18\x07 \x01(\x03R\rcreation_date\x12 \n\x0bsettle_date\x18\x08 \x01(\x03R\x0bsettle_date\x12(\n\x0fpayment_request\x18\t \x01(\tR\x0fpayment_request\x12*\n\x10\x64\x65scription_hash\x18\n \x01(\x0cR\x10\x64\x65scription_hash\x12\x16\n\x06\x65xpiry\x18\x0b \x01(\x03R\x06\x65xpiry\x12$\n\rfallback_addr\x18\x0c \x01(\tR\rfallback_addr\x12 \n\x0b\x63ltv_expiry\x18\r \x01(\x04R\x0b\x63ltv_expiry\"V\n\x12\x41\x64\x64InvoiceResponse\x12\x16\n\x06r_hash\x18\x01 \x01(\x0cR\x06r_hash\x12(\n\x0fpayment_request\x18\x02 \x01(\tR\x0fpayment_request\"E\n\x0bPaymentHash\x12\x1e\n\nr_hash_str\x18\x01 \x01(\tR\nr_hash_str\x12\x16\n\x06r_hash\x18\x02 \x01(\x0cR\x06r_hash\"*\n\x12ListInvoiceRequest\x12\x14\n\x0cpending_only\x18\x01 \x01(\x08\"A\n\x13ListInvoiceResponse\x12*\n\x08invoices\x18\x01 \x03(\x0b\x32\x0e.lnrpc.InvoiceR\x08invoices\"\x15\n\x13InvoiceSubscription\"\x8f\x01\n\x07Payment\x12\"\n\x0cpayment_hash\x18\x01 \x01(\tR\x0cpayment_hash\x12\x14\n\x05value\x18\x02 \x01(\x03R\x05value\x12$\n\rcreation_date\x18\x03 \x01(\x03R\rcreation_date\x12\x12\n\x04path\x18\x04 \x03(\tR\x04path\x12\x10\n\x03\x66\x65\x65\x18\x05 \x01(\x03R\x03\x66\x65\x65\"\x15\n\x13ListPaymentsRequest\"B\n\x14ListPaymentsResponse\x12*\n\x08payments\x18\x01 \x03(\x0b\x32\x0e.lnrpc.PaymentR\x08payments\"\x1a\n\x18\x44\x65leteAllPaymentsRequest\"\x1b\n\x19\x44\x65leteAllPaymentsResponse\"5\n\x11\x44\x65\x62ugLevelRequest\x12\x0c\n\x04show\x18\x01 \x01(\x08\x12\x12\n\nlevel_spec\x18\x02 \x01(\t\"6\n\x12\x44\x65\x62ugLevelResponse\x12 \n\x0bsub_systems\x18\x01 \x01(\tR\x0bsub_systems\"\x1f\n\x0cPayReqString\x12\x0f\n\x07pay_req\x18\x01 \x01(\t\"\xbe\x02\n\x06PayReq\x12 \n\x0b\x64\x65stination\x18\x01 \x01(\tR\x0b\x64\x65stination\x12\"\n\x0cpayment_hash\x18\x02 \x01(\tR\x0cpayment_hash\x12\"\n\x0cnum_satoshis\x18\x03 \x01(\x03R\x0cnum_satoshis\x12\x1c\n\ttimestamp\x18\x04 \x01(\x03R\ttimestamp\x12\x16\n\x06\x65xpiry\x18\x05 \x01(\x03R\x06\x65xpiry\x12 \n\x0b\x64\x65scription\x18\x06 \x01(\tR\x0b\x64\x65scription\x12*\n\x10\x64\x65scription_hash\x18\x07 \x01(\tR\x10\x64\x65scription_hash\x12$\n\rfallback_addr\x18\x08 \x01(\tR\rfallback_addr\x12 \n\x0b\x63ltv_expiry\x18\t \x01(\x03R\x0b\x63ltv_expiry\"\x12\n\x10\x46\x65\x65ReportRequest\"\x99\x01\n\x10\x43hannelFeeReport\x12!\n\nchan_point\x18\x01 \x01(\tR\rchannel_point\x12$\n\rbase_fee_msat\x18\x02 \x01(\x03R\rbase_fee_msat\x12 \n\x0b\x66\x65\x65_per_mil\x18\x03 \x01(\x03R\x0b\x66\x65\x65_per_mil\x12\x1a\n\x08\x66\x65\x65_rate\x18\x04 \x01(\x01R\x08\x66\x65\x65_rate\"P\n\x11\x46\x65\x65ReportResponse\x12;\n\x0c\x63hannel_fees\x18\x01 \x03(\x0b\x32\x17.lnrpc.ChannelFeeReportR\x0c\x63hannel_fees\"\xae\x01\n\x10\x46\x65\x65UpdateRequest\x12\x18\n\x06global\x18\x01 \x01(\x08H\x00R\x06global\x12\x35\n\nchan_point\x18\x02 \x01(\x0b\x32\x13.lnrpc.ChannelPointH\x00R\nchan_point\x12$\n\rbase_fee_msat\x18\x03 \x01(\x03R\rbase_fee_msat\x12\x1a\n\x08\x66\x65\x65_rate\x18\x04 \x01(\x01R\x08\x66\x65\x65_rateB\x07\n\x05scope\"\x13\n\x11\x46\x65\x65UpdateResponse2\xdc\x01\n\x0eWalletUnlocker\x12\x64\n\x0c\x43reateWallet\x12\x1a.lnrpc.CreateWalletRequest\x1a\x1b.lnrpc.CreateWalletResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\"\x10/v1/createwallet:\x01*\x12\x64\n\x0cUnlockWallet\x12\x1a.lnrpc.UnlockWalletRequest\x1a\x1b.lnrpc.UnlockWalletResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\"\x10/v1/unlockwallet:\x01*2\xa5\x1b\n\tLightning\x12j\n\rWalletBalance\x12\x1b.lnrpc.WalletBalanceRequest\x1a\x1c.lnrpc.WalletBalanceResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/balance/blockchain\x12k\n\x0e\x43hannelBalance\x12\x1c.lnrpc.ChannelBalanceRequest\x1a\x1d.lnrpc.ChannelBalanceResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1/balance/channels\x12\x65\n\x0fGetTransactions\x12\x1d.lnrpc.GetTransactionsRequest\x1a\x19.lnrpc.TransactionDetails\"\x18\x82\xd3\xe4\x93\x02\x12\x12\x10/v1/transactions\x12[\n\tSendCoins\x12\x17.lnrpc.SendCoinsRequest\x1a\x18.lnrpc.SendCoinsResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\"\x10/v1/transactions:\x01*\x12L\n\x15SubscribeTransactions\x12\x1d.lnrpc.GetTransactionsRequest\x1a\x12.lnrpc.Transaction0\x01\x12;\n\x08SendMany\x12\x16.lnrpc.SendManyRequest\x1a\x17.lnrpc.SendManyResponse\x12\x41\n\nNewAddress\x12\x18.lnrpc.NewAddressRequest\x1a\x19.lnrpc.NewAddressResponse\x12g\n\x11NewWitnessAddress\x12\x1f.lnrpc.NewWitnessAddressRequest\x1a\x19.lnrpc.NewAddressResponse\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/v1/newaddress\x12\x44\n\x0bSignMessage\x12\x19.lnrpc.SignMessageRequest\x1a\x1a.lnrpc.SignMessageResponse\x12J\n\rVerifyMessage\x12\x1b.lnrpc.VerifyMessageRequest\x1a\x1c.lnrpc.VerifyMessageResponse\x12Z\n\x0b\x43onnectPeer\x12\x19.lnrpc.ConnectPeerRequest\x1a\x1a.lnrpc.ConnectPeerResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\"\t/v1/peers:\x01*\x12j\n\x0e\x44isconnectPeer\x12\x1c.lnrpc.DisconnectPeerRequest\x1a\x1d.lnrpc.DisconnectPeerResponse\"\x1b\x82\xd3\xe4\x93\x02\x15*\x13/v1/peers/{pub_key}\x12Q\n\tListPeers\x12\x17.lnrpc.ListPeersRequest\x1a\x18.lnrpc.ListPeersResponse\"\x11\x82\xd3\xe4\x93\x02\x0b\x12\t/v1/peers\x12M\n\x07GetInfo\x12\x15.lnrpc.GetInfoRequest\x1a\x16.lnrpc.GetInfoResponse\"\x13\x82\xd3\xe4\x93\x02\r\x12\x0b/v1/getinfo\x12l\n\x0fPendingChannels\x12\x1c.lnrpc.PendingChannelRequest\x1a\x1d.lnrpc.PendingChannelResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1/channels/pending\x12]\n\x0cListChannels\x12\x1a.lnrpc.ListChannelsRequest\x1a\x1b.lnrpc.ListChannelsResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/v1/channels\x12Z\n\x0fOpenChannelSync\x12\x19.lnrpc.OpenChannelRequest\x1a\x13.lnrpc.ChannelPoint\"\x17\x82\xd3\xe4\x93\x02\x11\"\x0c/v1/channels:\x01*\x12\x43\n\x0bOpenChannel\x12\x19.lnrpc.OpenChannelRequest\x1a\x17.lnrpc.OpenStatusUpdate0\x01\x12\x96\x01\n\x0c\x43loseChannel\x12\x1a.lnrpc.CloseChannelRequest\x1a\x18.lnrpc.CloseStatusUpdate\"N\x82\xd3\xe4\x93\x02H*F/v1/channels/{channel_point.funding_txid}/{channel_point.output_index}0\x01\x12:\n\x0bSendPayment\x12\x12.lnrpc.SendRequest\x1a\x13.lnrpc.SendResponse(\x01\x30\x01\x12`\n\x0fSendPaymentSync\x12\x12.lnrpc.SendRequest\x1a\x13.lnrpc.SendResponse\"$\x82\xd3\xe4\x93\x02\x1e\"\x19/v1/channels/transactions:\x01*\x12P\n\nAddInvoice\x12\x0e.lnrpc.Invoice\x1a\x19.lnrpc.AddInvoiceResponse\"\x17\x82\xd3\xe4\x93\x02\x11\"\x0c/v1/invoices:\x01*\x12j\n\x0cListInvoices\x12\x19.lnrpc.ListInvoiceRequest\x1a\x1a.lnrpc.ListInvoiceResponse\"#\x82\xd3\xe4\x93\x02\x1d\x12\x1b/v1/invoices/{pending_only}\x12V\n\rLookupInvoice\x12\x12.lnrpc.PaymentHash\x1a\x0e.lnrpc.Invoice\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/v1/invoices/{r_hash_str}\x12\x61\n\x11SubscribeInvoices\x12\x1a.lnrpc.InvoiceSubscription\x1a\x0e.lnrpc.Invoice\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/invoices/subscribe0\x01\x12P\n\x0c\x44\x65\x63odePayReq\x12\x13.lnrpc.PayReqString\x1a\r.lnrpc.PayReq\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1/payreq/{pay_req}\x12]\n\x0cListPayments\x12\x1a.lnrpc.ListPaymentsRequest\x1a\x1b.lnrpc.ListPaymentsResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/v1/payments\x12l\n\x11\x44\x65leteAllPayments\x12\x1f.lnrpc.DeleteAllPaymentsRequest\x1a .lnrpc.DeleteAllPaymentsResponse\"\x14\x82\xd3\xe4\x93\x02\x0e*\x0c/v1/payments\x12S\n\rDescribeGraph\x12\x1a.lnrpc.ChannelGraphRequest\x1a\x13.lnrpc.ChannelGraph\"\x11\x82\xd3\xe4\x93\x02\x0b\x12\t/v1/graph\x12[\n\x0bGetChanInfo\x12\x16.lnrpc.ChanInfoRequest\x1a\x12.lnrpc.ChannelEdge\" \x82\xd3\xe4\x93\x02\x1a\x12\x18/v1/graph/edge/{chan_id}\x12X\n\x0bGetNodeInfo\x12\x16.lnrpc.NodeInfoRequest\x1a\x0f.lnrpc.NodeInfo\" \x82\xd3\xe4\x93\x02\x1a\x12\x18/v1/graph/node/{pub_key}\x12n\n\x0bQueryRoutes\x12\x19.lnrpc.QueryRoutesRequest\x1a\x1a.lnrpc.QueryRoutesResponse\"(\x82\xd3\xe4\x93\x02\"\x12 /v1/graph/routes/{pub_key}/{amt}\x12W\n\x0eGetNetworkInfo\x12\x19.lnrpc.NetworkInfoRequest\x1a\x12.lnrpc.NetworkInfo\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/v1/graph/info\x12\x35\n\nStopDaemon\x12\x12.lnrpc.StopRequest\x1a\x13.lnrpc.StopResponse\x12W\n\x15SubscribeChannelGraph\x12 .lnrpc.GraphTopologySubscription\x1a\x1a.lnrpc.GraphTopologyUpdate0\x01\x12;\n\x08SetAlias\x12\x16.lnrpc.SetAliasRequest\x1a\x17.lnrpc.SetAliasResponse\x12\x41\n\nDebugLevel\x12\x18.lnrpc.DebugLevelRequest\x1a\x19.lnrpc.DebugLevelResponse\x12P\n\tFeeReport\x12\x17.lnrpc.FeeReportRequest\x1a\x18.lnrpc.FeeReportResponse\"\x10\x82\xd3\xe4\x93\x02\n\x12\x08/v1/fees\x12T\n\nUpdateFees\x12\x17.lnrpc.FeeUpdateRequest\x1a\x18.lnrpc.FeeUpdateResponse\"\x13\x82\xd3\xe4\x93\x02\r\"\x08/v1/fees:\x01*b\x06proto3')
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -47,10 +47,120 @@ _NEWADDRESSREQUEST_ADDRESSTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1228,
-  serialized_end=1307,
+  serialized_start=1484,
+  serialized_end=1563,
 )
 _sym_db.RegisterEnumDescriptor(_NEWADDRESSREQUEST_ADDRESSTYPE)
+
+
+_CREATEWALLETREQUEST = _descriptor.Descriptor(
+  name='CreateWalletRequest',
+  full_name='lnrpc.CreateWalletRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='password', full_name='lnrpc.CreateWalletRequest.password', index=0,
+      number=1, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b(""),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=50,
+  serialized_end=89,
+)
+
+
+_CREATEWALLETRESPONSE = _descriptor.Descriptor(
+  name='CreateWalletResponse',
+  full_name='lnrpc.CreateWalletResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=91,
+  serialized_end=113,
+)
+
+
+_UNLOCKWALLETREQUEST = _descriptor.Descriptor(
+  name='UnlockWalletRequest',
+  full_name='lnrpc.UnlockWalletRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='password', full_name='lnrpc.UnlockWalletRequest.password', index=0,
+      number=1, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b(""),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=115,
+  serialized_end=154,
+)
+
+
+_UNLOCKWALLETRESPONSE = _descriptor.Descriptor(
+  name='UnlockWalletResponse',
+  full_name='lnrpc.UnlockWalletResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=156,
+  serialized_end=178,
+)
 
 
 _TRANSACTION = _descriptor.Descriptor(
@@ -109,6 +219,13 @@ _TRANSACTION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, json_name='total_fees'),
+    _descriptor.FieldDescriptor(
+      name='dest_addresses', full_name='lnrpc.Transaction.dest_addresses', index=7,
+      number=8, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='dest_addresses'),
   ],
   extensions=[
   ],
@@ -121,8 +238,8 @@ _TRANSACTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=51,
-  serialized_end=292,
+  serialized_start=181,
+  serialized_end=462,
 )
 
 
@@ -145,8 +262,8 @@ _GETTRANSACTIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=294,
-  serialized_end=318,
+  serialized_start=464,
+  serialized_end=488,
 )
 
 
@@ -176,8 +293,8 @@ _TRANSACTIONDETAILS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=320,
-  serialized_end=396,
+  serialized_start=490,
+  serialized_end=566,
 )
 
 
@@ -242,8 +359,8 @@ _SENDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=399,
-  serialized_end=536,
+  serialized_start=569,
+  serialized_end=706,
 )
 
 
@@ -287,8 +404,8 @@ _SENDRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=539,
-  serialized_end=687,
+  serialized_start=709,
+  serialized_end=857,
 )
 
 
@@ -332,8 +449,8 @@ _CHANNELPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=690,
-  serialized_end=820,
+  serialized_start=860,
+  serialized_end=990,
 )
 
 
@@ -370,8 +487,8 @@ _LIGHTNINGADDRESS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=822,
-  serialized_end=884,
+  serialized_start=992,
+  serialized_end=1054,
 )
 
 
@@ -408,8 +525,8 @@ _SENDMANYREQUEST_ADDRTOAMOUNTENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=970,
-  serialized_end=1021,
+  serialized_start=1183,
+  serialized_end=1234,
 )
 
 _SENDMANYREQUEST = _descriptor.Descriptor(
@@ -426,6 +543,20 @@ _SENDMANYREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='target_conf', full_name='lnrpc.SendManyRequest.target_conf', index=1,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='sat_per_byte', full_name='lnrpc.SendManyRequest.sat_per_byte', index=2,
+      number=5, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -438,8 +569,8 @@ _SENDMANYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=887,
-  serialized_end=1021,
+  serialized_start=1057,
+  serialized_end=1234,
 )
 
 
@@ -469,8 +600,8 @@ _SENDMANYRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1023,
-  serialized_end=1061,
+  serialized_start=1236,
+  serialized_end=1274,
 )
 
 
@@ -495,6 +626,20 @@ _SENDCOINSREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='target_conf', full_name='lnrpc.SendCoinsRequest.target_conf', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='sat_per_byte', full_name='lnrpc.SendCoinsRequest.sat_per_byte', index=3,
+      number=5, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -507,8 +652,8 @@ _SENDCOINSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1063,
-  serialized_end=1111,
+  serialized_start=1276,
+  serialized_end=1367,
 )
 
 
@@ -538,8 +683,8 @@ _SENDCOINSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1113,
-  serialized_end=1152,
+  serialized_start=1369,
+  serialized_end=1408,
 )
 
 
@@ -570,8 +715,8 @@ _NEWADDRESSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1155,
-  serialized_end=1307,
+  serialized_start=1411,
+  serialized_end=1563,
 )
 
 
@@ -594,8 +739,8 @@ _NEWWITNESSADDRESSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1309,
-  serialized_end=1335,
+  serialized_start=1565,
+  serialized_end=1591,
 )
 
 
@@ -625,8 +770,8 @@ _NEWADDRESSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1337,
-  serialized_end=1383,
+  serialized_start=1593,
+  serialized_end=1639,
 )
 
 
@@ -656,8 +801,8 @@ _SIGNMESSAGEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1385,
-  serialized_end=1423,
+  serialized_start=1641,
+  serialized_end=1679,
 )
 
 
@@ -687,8 +832,8 @@ _SIGNMESSAGERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1425,
-  serialized_end=1476,
+  serialized_start=1681,
+  serialized_end=1732,
 )
 
 
@@ -725,8 +870,8 @@ _VERIFYMESSAGEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1478,
-  serialized_end=1548,
+  serialized_start=1734,
+  serialized_end=1804,
 )
 
 
@@ -763,8 +908,8 @@ _VERIFYMESSAGERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1550,
-  serialized_end=1619,
+  serialized_start=1806,
+  serialized_end=1875,
 )
 
 
@@ -801,8 +946,8 @@ _CONNECTPEERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1621,
-  serialized_end=1694,
+  serialized_start=1877,
+  serialized_end=1950,
 )
 
 
@@ -832,8 +977,8 @@ _CONNECTPEERRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1696,
-  serialized_end=1743,
+  serialized_start=1952,
+  serialized_end=1999,
 )
 
 
@@ -863,8 +1008,8 @@ _DISCONNECTPEERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1745,
-  serialized_end=1794,
+  serialized_start=2001,
+  serialized_end=2050,
 )
 
 
@@ -887,8 +1032,8 @@ _DISCONNECTPEERRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1796,
-  serialized_end=1820,
+  serialized_start=2052,
+  serialized_end=2076,
 )
 
 
@@ -927,13 +1072,6 @@ _HTLC = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, json_name='expiration_height'),
-    _descriptor.FieldDescriptor(
-      name='revocation_delay', full_name='lnrpc.HTLC.revocation_delay', index=4,
-      number=5, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, json_name='revocation_delay'),
   ],
   extensions=[
   ],
@@ -946,8 +1084,8 @@ _HTLC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1823,
-  serialized_end=2001,
+  serialized_start=2079,
+  serialized_end=2213,
 )
 
 
@@ -1063,6 +1201,13 @@ _ACTIVECHANNEL = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, json_name='pending_htlcs'),
+    _descriptor.FieldDescriptor(
+      name='csv_delay', full_name='lnrpc.ActiveChannel.csv_delay', index=15,
+      number=16, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='csv_delay'),
   ],
   extensions=[
   ],
@@ -1075,8 +1220,8 @@ _ACTIVECHANNEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2004,
-  serialized_end=2592,
+  serialized_start=2216,
+  serialized_end=2834,
 )
 
 
@@ -1099,8 +1244,8 @@ _LISTCHANNELSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2594,
-  serialized_end=2615,
+  serialized_start=2836,
+  serialized_end=2857,
 )
 
 
@@ -1130,8 +1275,8 @@ _LISTCHANNELSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2617,
-  serialized_end=2689,
+  serialized_start=2859,
+  serialized_end=2931,
 )
 
 
@@ -1217,8 +1362,8 @@ _PEER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2692,
-  serialized_end=2952,
+  serialized_start=2934,
+  serialized_end=3194,
 )
 
 
@@ -1241,8 +1386,8 @@ _LISTPEERSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2954,
-  serialized_end=2972,
+  serialized_start=3196,
+  serialized_end=3214,
 )
 
 
@@ -1272,8 +1417,8 @@ _LISTPEERSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2974,
-  serialized_end=3028,
+  serialized_start=3216,
+  serialized_end=3270,
 )
 
 
@@ -1296,8 +1441,8 @@ _GETINFOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3030,
-  serialized_end=3046,
+  serialized_start=3272,
+  serialized_end=3288,
 )
 
 
@@ -1390,8 +1535,8 @@ _GETINFORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3049,
-  serialized_end=3422,
+  serialized_start=3291,
+  serialized_end=3664,
 )
 
 
@@ -1435,8 +1580,8 @@ _CONFIRMATIONUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3424,
-  serialized_end=3509,
+  serialized_start=3666,
+  serialized_end=3751,
 )
 
 
@@ -1466,8 +1611,8 @@ _CHANNELOPENUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3511,
-  serialized_end=3589,
+  serialized_start=3753,
+  serialized_end=3831,
 )
 
 
@@ -1504,8 +1649,8 @@ _CHANNELCLOSEUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3591,
-  serialized_end=3673,
+  serialized_start=3833,
+  serialized_end=3915,
 )
 
 
@@ -1524,16 +1669,23 @@ _CLOSECHANNELREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='time_limit', full_name='lnrpc.CloseChannelRequest.time_limit', index=1,
-      number=2, type=3, cpp_type=2, label=1,
+      name='force', full_name='lnrpc.CloseChannelRequest.force', index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='target_conf', full_name='lnrpc.CloseChannelRequest.target_conf', index=2,
+      number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='force', full_name='lnrpc.CloseChannelRequest.force', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
+      name='sat_per_byte', full_name='lnrpc.CloseChannelRequest.sat_per_byte', index=3,
+      number=5, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -1549,8 +1701,8 @@ _CLOSECHANNELREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3675,
-  serialized_end=3775,
+  serialized_start=3917,
+  serialized_end=4040,
 )
 
 
@@ -1597,8 +1749,8 @@ _CLOSESTATUSUPDATE = _descriptor.Descriptor(
       name='update', full_name='lnrpc.CloseStatusUpdate.update',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=3778,
-  serialized_end=3995,
+  serialized_start=4043,
+  serialized_end=4260,
 )
 
 
@@ -1635,8 +1787,8 @@ _PENDINGUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3997,
-  serialized_end=4068,
+  serialized_start=4262,
+  serialized_end=4333,
 )
 
 
@@ -1683,12 +1835,26 @@ _OPENCHANNELREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None, json_name='push_sat'),
     _descriptor.FieldDescriptor(
-      name='num_confs', full_name='lnrpc.OpenChannelRequest.num_confs', index=5,
-      number=6, type=13, cpp_type=3, label=1,
+      name='target_conf', full_name='lnrpc.OpenChannelRequest.target_conf', index=5,
+      number=6, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, json_name='num_confs'),
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='sat_per_byte', full_name='lnrpc.OpenChannelRequest.sat_per_byte', index=6,
+      number=7, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='private', full_name='lnrpc.OpenChannelRequest.private', index=7,
+      number=8, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='private'),
   ],
   extensions=[
   ],
@@ -1701,8 +1867,8 @@ _OPENCHANNELREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4071,
-  serialized_end=4323,
+  serialized_start=4336,
+  serialized_end=4627,
 )
 
 
@@ -1749,8 +1915,74 @@ _OPENSTATUSUPDATE = _descriptor.Descriptor(
       name='update', full_name='lnrpc.OpenStatusUpdate.update',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=4326,
-  serialized_end=4537,
+  serialized_start=4630,
+  serialized_end=4841,
+)
+
+
+_PENDINGHTLC = _descriptor.Descriptor(
+  name='PendingHTLC',
+  full_name='lnrpc.PendingHTLC',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='incoming', full_name='lnrpc.PendingHTLC.incoming', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='incoming'),
+    _descriptor.FieldDescriptor(
+      name='amount', full_name='lnrpc.PendingHTLC.amount', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='amount'),
+    _descriptor.FieldDescriptor(
+      name='outpoint', full_name='lnrpc.PendingHTLC.outpoint', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='outpoint'),
+    _descriptor.FieldDescriptor(
+      name='maturity_height', full_name='lnrpc.PendingHTLC.maturity_height', index=3,
+      number=4, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='maturity_height'),
+    _descriptor.FieldDescriptor(
+      name='blocks_til_maturity', full_name='lnrpc.PendingHTLC.blocks_til_maturity', index=4,
+      number=5, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='blocks_til_maturity'),
+    _descriptor.FieldDescriptor(
+      name='stage', full_name='lnrpc.PendingHTLC.stage', index=5,
+      number=6, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='stage'),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4844,
+  serialized_end=5051,
 )
 
 
@@ -1773,8 +2005,8 @@ _PENDINGCHANNELREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4539,
-  serialized_end=4562,
+  serialized_start=5053,
+  serialized_end=5076,
 )
 
 
@@ -1832,8 +2064,8 @@ _PENDINGCHANNELRESPONSE_PENDINGCHANNEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4973,
-  serialized_end=5175,
+  serialized_start=5487,
+  serialized_end=5689,
 )
 
 _PENDINGCHANNELRESPONSE_PENDINGOPENCHANNEL = _descriptor.Descriptor(
@@ -1859,7 +2091,7 @@ _PENDINGCHANNELRESPONSE_PENDINGOPENCHANNEL = _descriptor.Descriptor(
       options=None, json_name='confirmation_height'),
     _descriptor.FieldDescriptor(
       name='blocks_till_open', full_name='lnrpc.PendingChannelResponse.PendingOpenChannel.blocks_till_open', index=2,
-      number=3, type=13, cpp_type=3, label=1,
+      number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -1897,8 +2129,8 @@ _PENDINGCHANNELRESPONSE_PENDINGOPENCHANNEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5178,
-  serialized_end=5466,
+  serialized_start=5692,
+  serialized_end=5980,
 )
 
 _PENDINGCHANNELRESPONSE_CLOSEDCHANNEL = _descriptor.Descriptor(
@@ -1934,8 +2166,8 @@ _PENDINGCHANNELRESPONSE_CLOSEDCHANNEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5468,
-  serialized_end=5582,
+  serialized_start=5982,
+  serialized_end=6096,
 )
 
 _PENDINGCHANNELRESPONSE_FORCECLOSEDCHANNEL = _descriptor.Descriptor(
@@ -1975,11 +2207,25 @@ _PENDINGCHANNELRESPONSE_FORCECLOSEDCHANNEL = _descriptor.Descriptor(
       options=None, json_name='maturity_height'),
     _descriptor.FieldDescriptor(
       name='blocks_til_maturity', full_name='lnrpc.PendingChannelResponse.ForceClosedChannel.blocks_til_maturity', index=4,
-      number=5, type=13, cpp_type=3, label=1,
+      number=5, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, json_name='blocks_til_maturity'),
+    _descriptor.FieldDescriptor(
+      name='recovered_balance', full_name='lnrpc.PendingChannelResponse.ForceClosedChannel.recovered_balance', index=5,
+      number=6, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='recovered_balance'),
+    _descriptor.FieldDescriptor(
+      name='pending_htlcs', full_name='lnrpc.PendingChannelResponse.ForceClosedChannel.pending_htlcs', index=6,
+      number=8, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='pending_htlcs'),
   ],
   extensions=[
   ],
@@ -1992,8 +2238,8 @@ _PENDINGCHANNELRESPONSE_FORCECLOSEDCHANNEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5585,
-  serialized_end=5843,
+  serialized_start=6099,
+  serialized_end=6461,
 )
 
 _PENDINGCHANNELRESPONSE = _descriptor.Descriptor(
@@ -2043,8 +2289,8 @@ _PENDINGCHANNELRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4565,
-  serialized_end=5843,
+  serialized_start=5079,
+  serialized_end=6461,
 )
 
 
@@ -2074,8 +2320,8 @@ _WALLETBALANCEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5845,
-  serialized_end=5889,
+  serialized_start=6463,
+  serialized_end=6507,
 )
 
 
@@ -2087,12 +2333,26 @@ _WALLETBALANCERESPONSE = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='balance', full_name='lnrpc.WalletBalanceResponse.balance', index=0,
+      name='total_balance', full_name='lnrpc.WalletBalanceResponse.total_balance', index=0,
       number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, json_name='balance'),
+      options=None, json_name='total_balance'),
+    _descriptor.FieldDescriptor(
+      name='confirmed_balance', full_name='lnrpc.WalletBalanceResponse.confirmed_balance', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='confirmed_balance'),
+    _descriptor.FieldDescriptor(
+      name='unconfirmed_balance', full_name='lnrpc.WalletBalanceResponse.unconfirmed_balance', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='unconfirmed_balance'),
   ],
   extensions=[
   ],
@@ -2105,8 +2365,8 @@ _WALLETBALANCERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5891,
-  serialized_end=5940,
+  serialized_start=6510,
+  serialized_end=6667,
 )
 
 
@@ -2129,8 +2389,8 @@ _CHANNELBALANCEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5942,
-  serialized_end=5965,
+  serialized_start=6669,
+  serialized_end=6692,
 )
 
 
@@ -2160,8 +2420,8 @@ _CHANNELBALANCERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5967,
-  serialized_end=6017,
+  serialized_start=6694,
+  serialized_end=6744,
 )
 
 
@@ -2198,8 +2458,8 @@ _QUERYROUTESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6019,
-  serialized_end=6069,
+  serialized_start=6746,
+  serialized_end=6796,
 )
 
 
@@ -2229,8 +2489,8 @@ _QUERYROUTESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6071,
-  serialized_end=6130,
+  serialized_start=6798,
+  serialized_end=6857,
 )
 
 
@@ -2269,6 +2529,13 @@ _HOP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, json_name='fee'),
+    _descriptor.FieldDescriptor(
+      name='expiry', full_name='lnrpc.Hop.expiry', index=4,
+      number=5, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='expiry'),
   ],
   extensions=[
   ],
@@ -2281,8 +2548,8 @@ _HOP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6132,
-  serialized_end=6259,
+  serialized_start=6860,
+  serialized_end=7011,
 )
 
 
@@ -2333,8 +2600,8 @@ _ROUTE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6262,
-  serialized_end=6405,
+  serialized_start=7014,
+  serialized_end=7157,
 )
 
 
@@ -2364,8 +2631,8 @@ _NODEINFOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6407,
-  serialized_end=6441,
+  serialized_start=7159,
+  serialized_end=7193,
 )
 
 
@@ -2409,8 +2676,8 @@ _NODEINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6444,
-  serialized_end=6572,
+  serialized_start=7196,
+  serialized_end=7324,
 )
 
 
@@ -2449,6 +2716,13 @@ _LIGHTNINGNODE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, json_name='addresses'),
+    _descriptor.FieldDescriptor(
+      name='color', full_name='lnrpc.LightningNode.color', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='color'),
   ],
   extensions=[
   ],
@@ -2461,8 +2735,8 @@ _LIGHTNINGNODE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6575,
-  serialized_end=6722,
+  serialized_start=7327,
+  serialized_end=7496,
 )
 
 
@@ -2499,8 +2773,8 @@ _NODEADDRESS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6724,
-  serialized_end=6783,
+  serialized_start=7498,
+  serialized_end=7557,
 )
 
 
@@ -2551,8 +2825,8 @@ _ROUTINGPOLICY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6786,
-  serialized_end=6959,
+  serialized_start=7560,
+  serialized_end=7733,
 )
 
 
@@ -2631,8 +2905,8 @@ _CHANNELEDGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6962,
-  serialized_end=7277,
+  serialized_start=7736,
+  serialized_end=8051,
 )
 
 
@@ -2655,8 +2929,8 @@ _CHANNELGRAPHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7279,
-  serialized_end=7300,
+  serialized_start=8053,
+  serialized_end=8074,
 )
 
 
@@ -2693,8 +2967,8 @@ _CHANNELGRAPH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7302,
-  serialized_end=7402,
+  serialized_start=8076,
+  serialized_end=8176,
 )
 
 
@@ -2724,8 +2998,8 @@ _CHANINFOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7404,
-  serialized_end=7438,
+  serialized_start=8178,
+  serialized_end=8212,
 )
 
 
@@ -2748,8 +3022,8 @@ _NETWORKINFOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7440,
-  serialized_end=7460,
+  serialized_start=8214,
+  serialized_end=8234,
 )
 
 
@@ -2835,8 +3109,8 @@ _NETWORKINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7463,
-  serialized_end=7850,
+  serialized_start=8237,
+  serialized_end=8624,
 )
 
 
@@ -2859,8 +3133,8 @@ _STOPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7852,
-  serialized_end=7865,
+  serialized_start=8626,
+  serialized_end=8639,
 )
 
 
@@ -2883,8 +3157,8 @@ _STOPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7867,
-  serialized_end=7881,
+  serialized_start=8641,
+  serialized_end=8655,
 )
 
 
@@ -2907,8 +3181,8 @@ _GRAPHTOPOLOGYSUBSCRIPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7883,
-  serialized_end=7910,
+  serialized_start=8657,
+  serialized_end=8684,
 )
 
 
@@ -2952,8 +3226,8 @@ _GRAPHTOPOLOGYUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7913,
-  serialized_end=8076,
+  serialized_start=8687,
+  serialized_end=8850,
 )
 
 
@@ -3004,8 +3278,8 @@ _NODEUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8078,
-  serialized_end=8171,
+  serialized_start=8852,
+  serialized_end=8945,
 )
 
 
@@ -3070,8 +3344,8 @@ _CHANNELEDGEUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8174,
-  serialized_end=8366,
+  serialized_start=8948,
+  serialized_end=9140,
 )
 
 
@@ -3122,8 +3396,8 @@ _CLOSEDCHANNELUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8368,
-  serialized_end=8488,
+  serialized_start=9142,
+  serialized_end=9262,
 )
 
 
@@ -3153,8 +3427,8 @@ _SETALIASREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8490,
-  serialized_end=8526,
+  serialized_start=9264,
+  serialized_end=9300,
 )
 
 
@@ -3177,8 +3451,8 @@ _SETALIASRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8528,
-  serialized_end=8546,
+  serialized_start=9302,
+  serialized_end=9320,
 )
 
 
@@ -3252,6 +3526,34 @@ _INVOICE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, json_name='payment_request'),
+    _descriptor.FieldDescriptor(
+      name='description_hash', full_name='lnrpc.Invoice.description_hash', index=9,
+      number=10, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b(""),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='description_hash'),
+    _descriptor.FieldDescriptor(
+      name='expiry', full_name='lnrpc.Invoice.expiry', index=10,
+      number=11, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='expiry'),
+    _descriptor.FieldDescriptor(
+      name='fallback_addr', full_name='lnrpc.Invoice.fallback_addr', index=11,
+      number=12, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='fallback_addr'),
+    _descriptor.FieldDescriptor(
+      name='cltv_expiry', full_name='lnrpc.Invoice.cltv_expiry', index=12,
+      number=13, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='cltv_expiry'),
   ],
   extensions=[
   ],
@@ -3264,8 +3566,8 @@ _INVOICE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8549,
-  serialized_end=8822,
+  serialized_start=9323,
+  serialized_end=9736,
 )
 
 
@@ -3302,8 +3604,8 @@ _ADDINVOICERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8824,
-  serialized_end=8910,
+  serialized_start=9738,
+  serialized_end=9824,
 )
 
 
@@ -3340,8 +3642,8 @@ _PAYMENTHASH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8912,
-  serialized_end=8981,
+  serialized_start=9826,
+  serialized_end=9895,
 )
 
 
@@ -3371,8 +3673,8 @@ _LISTINVOICEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8983,
-  serialized_end=9025,
+  serialized_start=9897,
+  serialized_end=9939,
 )
 
 
@@ -3402,8 +3704,8 @@ _LISTINVOICERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9027,
-  serialized_end=9092,
+  serialized_start=9941,
+  serialized_end=10006,
 )
 
 
@@ -3426,8 +3728,8 @@ _INVOICESUBSCRIPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9094,
-  serialized_end=9115,
+  serialized_start=10008,
+  serialized_end=10029,
 )
 
 
@@ -3485,8 +3787,8 @@ _PAYMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9118,
-  serialized_end=9261,
+  serialized_start=10032,
+  serialized_end=10175,
 )
 
 
@@ -3509,8 +3811,8 @@ _LISTPAYMENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9263,
-  serialized_end=9284,
+  serialized_start=10177,
+  serialized_end=10198,
 )
 
 
@@ -3540,8 +3842,8 @@ _LISTPAYMENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9286,
-  serialized_end=9352,
+  serialized_start=10200,
+  serialized_end=10266,
 )
 
 
@@ -3564,8 +3866,8 @@ _DELETEALLPAYMENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9354,
-  serialized_end=9380,
+  serialized_start=10268,
+  serialized_end=10294,
 )
 
 
@@ -3588,8 +3890,8 @@ _DELETEALLPAYMENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9382,
-  serialized_end=9409,
+  serialized_start=10296,
+  serialized_end=10323,
 )
 
 
@@ -3626,8 +3928,8 @@ _DEBUGLEVELREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9411,
-  serialized_end=9464,
+  serialized_start=10325,
+  serialized_end=10378,
 )
 
 
@@ -3657,8 +3959,8 @@ _DEBUGLEVELRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9466,
-  serialized_end=9520,
+  serialized_start=10380,
+  serialized_end=10434,
 )
 
 
@@ -3688,8 +3990,8 @@ _PAYREQSTRING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9522,
-  serialized_end=9553,
+  serialized_start=10436,
+  serialized_end=10467,
 )
 
 
@@ -3721,6 +4023,48 @@ _PAYREQ = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, json_name='num_satoshis'),
+    _descriptor.FieldDescriptor(
+      name='timestamp', full_name='lnrpc.PayReq.timestamp', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='timestamp'),
+    _descriptor.FieldDescriptor(
+      name='expiry', full_name='lnrpc.PayReq.expiry', index=4,
+      number=5, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='expiry'),
+    _descriptor.FieldDescriptor(
+      name='description', full_name='lnrpc.PayReq.description', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='description'),
+    _descriptor.FieldDescriptor(
+      name='description_hash', full_name='lnrpc.PayReq.description_hash', index=6,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='description_hash'),
+    _descriptor.FieldDescriptor(
+      name='fallback_addr', full_name='lnrpc.PayReq.fallback_addr', index=7,
+      number=8, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='fallback_addr'),
+    _descriptor.FieldDescriptor(
+      name='cltv_expiry', full_name='lnrpc.PayReq.cltv_expiry', index=8,
+      number=9, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='cltv_expiry'),
   ],
   extensions=[
   ],
@@ -3733,8 +4077,194 @@ _PAYREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9555,
-  serialized_end=9669,
+  serialized_start=10470,
+  serialized_end=10788,
+)
+
+
+_FEEREPORTREQUEST = _descriptor.Descriptor(
+  name='FeeReportRequest',
+  full_name='lnrpc.FeeReportRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10790,
+  serialized_end=10808,
+)
+
+
+_CHANNELFEEREPORT = _descriptor.Descriptor(
+  name='ChannelFeeReport',
+  full_name='lnrpc.ChannelFeeReport',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='chan_point', full_name='lnrpc.ChannelFeeReport.chan_point', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='channel_point'),
+    _descriptor.FieldDescriptor(
+      name='base_fee_msat', full_name='lnrpc.ChannelFeeReport.base_fee_msat', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='base_fee_msat'),
+    _descriptor.FieldDescriptor(
+      name='fee_per_mil', full_name='lnrpc.ChannelFeeReport.fee_per_mil', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='fee_per_mil'),
+    _descriptor.FieldDescriptor(
+      name='fee_rate', full_name='lnrpc.ChannelFeeReport.fee_rate', index=3,
+      number=4, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='fee_rate'),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10811,
+  serialized_end=10964,
+)
+
+
+_FEEREPORTRESPONSE = _descriptor.Descriptor(
+  name='FeeReportResponse',
+  full_name='lnrpc.FeeReportResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='channel_fees', full_name='lnrpc.FeeReportResponse.channel_fees', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='channel_fees'),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10966,
+  serialized_end=11046,
+)
+
+
+_FEEUPDATEREQUEST = _descriptor.Descriptor(
+  name='FeeUpdateRequest',
+  full_name='lnrpc.FeeUpdateRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='global', full_name='lnrpc.FeeUpdateRequest.global', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='global'),
+    _descriptor.FieldDescriptor(
+      name='chan_point', full_name='lnrpc.FeeUpdateRequest.chan_point', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='chan_point'),
+    _descriptor.FieldDescriptor(
+      name='base_fee_msat', full_name='lnrpc.FeeUpdateRequest.base_fee_msat', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='base_fee_msat'),
+    _descriptor.FieldDescriptor(
+      name='fee_rate', full_name='lnrpc.FeeUpdateRequest.fee_rate', index=3,
+      number=4, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, json_name='fee_rate'),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='scope', full_name='lnrpc.FeeUpdateRequest.scope',
+      index=0, containing_type=None, fields=[]),
+  ],
+  serialized_start=11049,
+  serialized_end=11223,
+)
+
+
+_FEEUPDATERESPONSE = _descriptor.Descriptor(
+  name='FeeUpdateResponse',
+  full_name='lnrpc.FeeUpdateResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=11225,
+  serialized_end=11244,
 )
 
 _TRANSACTIONDETAILS.fields_by_name['transactions'].message_type = _TRANSACTION
@@ -3779,6 +4309,7 @@ _PENDINGCHANNELRESPONSE_PENDINGOPENCHANNEL.containing_type = _PENDINGCHANNELRESP
 _PENDINGCHANNELRESPONSE_CLOSEDCHANNEL.fields_by_name['channel'].message_type = _PENDINGCHANNELRESPONSE_PENDINGCHANNEL
 _PENDINGCHANNELRESPONSE_CLOSEDCHANNEL.containing_type = _PENDINGCHANNELRESPONSE
 _PENDINGCHANNELRESPONSE_FORCECLOSEDCHANNEL.fields_by_name['channel'].message_type = _PENDINGCHANNELRESPONSE_PENDINGCHANNEL
+_PENDINGCHANNELRESPONSE_FORCECLOSEDCHANNEL.fields_by_name['pending_htlcs'].message_type = _PENDINGHTLC
 _PENDINGCHANNELRESPONSE_FORCECLOSEDCHANNEL.containing_type = _PENDINGCHANNELRESPONSE
 _PENDINGCHANNELRESPONSE.fields_by_name['pending_open_channels'].message_type = _PENDINGCHANNELRESPONSE_PENDINGOPENCHANNEL
 _PENDINGCHANNELRESPONSE.fields_by_name['pending_closing_channels'].message_type = _PENDINGCHANNELRESPONSE_CLOSEDCHANNEL
@@ -3799,6 +4330,18 @@ _CHANNELEDGEUPDATE.fields_by_name['routing_policy'].message_type = _ROUTINGPOLIC
 _CLOSEDCHANNELUPDATE.fields_by_name['chan_point'].message_type = _CHANNELPOINT
 _LISTINVOICERESPONSE.fields_by_name['invoices'].message_type = _INVOICE
 _LISTPAYMENTSRESPONSE.fields_by_name['payments'].message_type = _PAYMENT
+_FEEREPORTRESPONSE.fields_by_name['channel_fees'].message_type = _CHANNELFEEREPORT
+_FEEUPDATEREQUEST.fields_by_name['chan_point'].message_type = _CHANNELPOINT
+_FEEUPDATEREQUEST.oneofs_by_name['scope'].fields.append(
+  _FEEUPDATEREQUEST.fields_by_name['global'])
+_FEEUPDATEREQUEST.fields_by_name['global'].containing_oneof = _FEEUPDATEREQUEST.oneofs_by_name['scope']
+_FEEUPDATEREQUEST.oneofs_by_name['scope'].fields.append(
+  _FEEUPDATEREQUEST.fields_by_name['chan_point'])
+_FEEUPDATEREQUEST.fields_by_name['chan_point'].containing_oneof = _FEEUPDATEREQUEST.oneofs_by_name['scope']
+DESCRIPTOR.message_types_by_name['CreateWalletRequest'] = _CREATEWALLETREQUEST
+DESCRIPTOR.message_types_by_name['CreateWalletResponse'] = _CREATEWALLETRESPONSE
+DESCRIPTOR.message_types_by_name['UnlockWalletRequest'] = _UNLOCKWALLETREQUEST
+DESCRIPTOR.message_types_by_name['UnlockWalletResponse'] = _UNLOCKWALLETRESPONSE
 DESCRIPTOR.message_types_by_name['Transaction'] = _TRANSACTION
 DESCRIPTOR.message_types_by_name['GetTransactionsRequest'] = _GETTRANSACTIONSREQUEST
 DESCRIPTOR.message_types_by_name['TransactionDetails'] = _TRANSACTIONDETAILS
@@ -3838,6 +4381,7 @@ DESCRIPTOR.message_types_by_name['CloseStatusUpdate'] = _CLOSESTATUSUPDATE
 DESCRIPTOR.message_types_by_name['PendingUpdate'] = _PENDINGUPDATE
 DESCRIPTOR.message_types_by_name['OpenChannelRequest'] = _OPENCHANNELREQUEST
 DESCRIPTOR.message_types_by_name['OpenStatusUpdate'] = _OPENSTATUSUPDATE
+DESCRIPTOR.message_types_by_name['PendingHTLC'] = _PENDINGHTLC
 DESCRIPTOR.message_types_by_name['PendingChannelRequest'] = _PENDINGCHANNELREQUEST
 DESCRIPTOR.message_types_by_name['PendingChannelResponse'] = _PENDINGCHANNELRESPONSE
 DESCRIPTOR.message_types_by_name['WalletBalanceRequest'] = _WALLETBALANCEREQUEST
@@ -3883,7 +4427,40 @@ DESCRIPTOR.message_types_by_name['DebugLevelRequest'] = _DEBUGLEVELREQUEST
 DESCRIPTOR.message_types_by_name['DebugLevelResponse'] = _DEBUGLEVELRESPONSE
 DESCRIPTOR.message_types_by_name['PayReqString'] = _PAYREQSTRING
 DESCRIPTOR.message_types_by_name['PayReq'] = _PAYREQ
+DESCRIPTOR.message_types_by_name['FeeReportRequest'] = _FEEREPORTREQUEST
+DESCRIPTOR.message_types_by_name['ChannelFeeReport'] = _CHANNELFEEREPORT
+DESCRIPTOR.message_types_by_name['FeeReportResponse'] = _FEEREPORTRESPONSE
+DESCRIPTOR.message_types_by_name['FeeUpdateRequest'] = _FEEUPDATEREQUEST
+DESCRIPTOR.message_types_by_name['FeeUpdateResponse'] = _FEEUPDATERESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+CreateWalletRequest = _reflection.GeneratedProtocolMessageType('CreateWalletRequest', (_message.Message,), dict(
+  DESCRIPTOR = _CREATEWALLETREQUEST,
+  __module__ = 'rpc_pb2'
+  # @@protoc_insertion_point(class_scope:lnrpc.CreateWalletRequest)
+  ))
+_sym_db.RegisterMessage(CreateWalletRequest)
+
+CreateWalletResponse = _reflection.GeneratedProtocolMessageType('CreateWalletResponse', (_message.Message,), dict(
+  DESCRIPTOR = _CREATEWALLETRESPONSE,
+  __module__ = 'rpc_pb2'
+  # @@protoc_insertion_point(class_scope:lnrpc.CreateWalletResponse)
+  ))
+_sym_db.RegisterMessage(CreateWalletResponse)
+
+UnlockWalletRequest = _reflection.GeneratedProtocolMessageType('UnlockWalletRequest', (_message.Message,), dict(
+  DESCRIPTOR = _UNLOCKWALLETREQUEST,
+  __module__ = 'rpc_pb2'
+  # @@protoc_insertion_point(class_scope:lnrpc.UnlockWalletRequest)
+  ))
+_sym_db.RegisterMessage(UnlockWalletRequest)
+
+UnlockWalletResponse = _reflection.GeneratedProtocolMessageType('UnlockWalletResponse', (_message.Message,), dict(
+  DESCRIPTOR = _UNLOCKWALLETRESPONSE,
+  __module__ = 'rpc_pb2'
+  # @@protoc_insertion_point(class_scope:lnrpc.UnlockWalletResponse)
+  ))
+_sym_db.RegisterMessage(UnlockWalletResponse)
 
 Transaction = _reflection.GeneratedProtocolMessageType('Transaction', (_message.Message,), dict(
   DESCRIPTOR = _TRANSACTION,
@@ -4165,6 +4742,13 @@ OpenStatusUpdate = _reflection.GeneratedProtocolMessageType('OpenStatusUpdate', 
   # @@protoc_insertion_point(class_scope:lnrpc.OpenStatusUpdate)
   ))
 _sym_db.RegisterMessage(OpenStatusUpdate)
+
+PendingHTLC = _reflection.GeneratedProtocolMessageType('PendingHTLC', (_message.Message,), dict(
+  DESCRIPTOR = _PENDINGHTLC,
+  __module__ = 'rpc_pb2'
+  # @@protoc_insertion_point(class_scope:lnrpc.PendingHTLC)
+  ))
+_sym_db.RegisterMessage(PendingHTLC)
 
 PendingChannelRequest = _reflection.GeneratedProtocolMessageType('PendingChannelRequest', (_message.Message,), dict(
   DESCRIPTOR = _PENDINGCHANNELREQUEST,
@@ -4513,6 +5097,41 @@ PayReq = _reflection.GeneratedProtocolMessageType('PayReq', (_message.Message,),
   ))
 _sym_db.RegisterMessage(PayReq)
 
+FeeReportRequest = _reflection.GeneratedProtocolMessageType('FeeReportRequest', (_message.Message,), dict(
+  DESCRIPTOR = _FEEREPORTREQUEST,
+  __module__ = 'rpc_pb2'
+  # @@protoc_insertion_point(class_scope:lnrpc.FeeReportRequest)
+  ))
+_sym_db.RegisterMessage(FeeReportRequest)
+
+ChannelFeeReport = _reflection.GeneratedProtocolMessageType('ChannelFeeReport', (_message.Message,), dict(
+  DESCRIPTOR = _CHANNELFEEREPORT,
+  __module__ = 'rpc_pb2'
+  # @@protoc_insertion_point(class_scope:lnrpc.ChannelFeeReport)
+  ))
+_sym_db.RegisterMessage(ChannelFeeReport)
+
+FeeReportResponse = _reflection.GeneratedProtocolMessageType('FeeReportResponse', (_message.Message,), dict(
+  DESCRIPTOR = _FEEREPORTRESPONSE,
+  __module__ = 'rpc_pb2'
+  # @@protoc_insertion_point(class_scope:lnrpc.FeeReportResponse)
+  ))
+_sym_db.RegisterMessage(FeeReportResponse)
+
+FeeUpdateRequest = _reflection.GeneratedProtocolMessageType('FeeUpdateRequest', (_message.Message,), dict(
+  DESCRIPTOR = _FEEUPDATEREQUEST,
+  __module__ = 'rpc_pb2'
+  # @@protoc_insertion_point(class_scope:lnrpc.FeeUpdateRequest)
+  ))
+_sym_db.RegisterMessage(FeeUpdateRequest)
+
+FeeUpdateResponse = _reflection.GeneratedProtocolMessageType('FeeUpdateResponse', (_message.Message,), dict(
+  DESCRIPTOR = _FEEUPDATERESPONSE,
+  __module__ = 'rpc_pb2'
+  # @@protoc_insertion_point(class_scope:lnrpc.FeeUpdateResponse)
+  ))
+_sym_db.RegisterMessage(FeeUpdateResponse)
+
 
 _SENDMANYREQUEST_ADDRTOAMOUNTENTRY.has_options = True
 _SENDMANYREQUEST_ADDRTOAMOUNTENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
@@ -4524,6 +5143,71 @@ try:
   from grpc.beta import interfaces as beta_interfaces
   from grpc.framework.common import cardinality
   from grpc.framework.interfaces.face import utilities as face_utilities
+
+
+  class WalletUnlockerStub(object):
+    """The WalletUnlocker service is used to set up a wallet password for
+    lnd at first startup, and unlock a previously set up wallet.
+    """
+
+    def __init__(self, channel):
+      """Constructor.
+
+      Args:
+        channel: A grpc.Channel.
+      """
+      self.CreateWallet = channel.unary_unary(
+          '/lnrpc.WalletUnlocker/CreateWallet',
+          request_serializer=CreateWalletRequest.SerializeToString,
+          response_deserializer=CreateWalletResponse.FromString,
+          )
+      self.UnlockWallet = channel.unary_unary(
+          '/lnrpc.WalletUnlocker/UnlockWallet',
+          request_serializer=UnlockWalletRequest.SerializeToString,
+          response_deserializer=UnlockWalletResponse.FromString,
+          )
+
+
+  class WalletUnlockerServicer(object):
+    """The WalletUnlocker service is used to set up a wallet password for
+    lnd at first startup, and unlock a previously set up wallet.
+    """
+
+    def CreateWallet(self, request, context):
+      """* lncli: `create`
+      CreateWallet is used at lnd startup to set the encryption password for
+      the wallet database.
+      """
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+    def UnlockWallet(self, request, context):
+      """* lncli: `unlock`
+      UnlockWallet is used at startup of lnd to provide a password to unlock
+      the wallet database.
+      """
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+
+  def add_WalletUnlockerServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+        'CreateWallet': grpc.unary_unary_rpc_method_handler(
+            servicer.CreateWallet,
+            request_deserializer=CreateWalletRequest.FromString,
+            response_serializer=CreateWalletResponse.SerializeToString,
+        ),
+        'UnlockWallet': grpc.unary_unary_rpc_method_handler(
+            servicer.UnlockWallet,
+            request_deserializer=UnlockWalletRequest.FromString,
+            response_serializer=UnlockWalletResponse.SerializeToString,
+        ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+        'lnrpc.WalletUnlocker', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
 
 
   class LightningStub(object):
@@ -4721,6 +5405,16 @@ try:
           request_serializer=DebugLevelRequest.SerializeToString,
           response_deserializer=DebugLevelResponse.FromString,
           )
+      self.FeeReport = channel.unary_unary(
+          '/lnrpc.Lightning/FeeReport',
+          request_serializer=FeeReportRequest.SerializeToString,
+          response_deserializer=FeeReportResponse.FromString,
+          )
+      self.UpdateFees = channel.unary_unary(
+          '/lnrpc.Lightning/UpdateFees',
+          request_serializer=FeeUpdateRequest.SerializeToString,
+          response_deserializer=FeeUpdateResponse.FromString,
+          )
 
 
   class LightningServicer(object):
@@ -4728,260 +5422,395 @@ try:
     pass
 
     def WalletBalance(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `walletbalance`
+      WalletBalance returns total unspent outputs(confirmed and unconfirmed), all confirmed unspent outputs and all unconfirmed unspent outputs under control
+      by the wallet. This method can be modified by having the request specify
+      only witness outputs should be factored into the final output sum.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def ChannelBalance(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `channelbalance`
+      ChannelBalance returns the total funds available across all open channels
+      in satoshis.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def GetTransactions(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `listchaintxns`
+      GetTransactions returns a list describing all the known transactions
+      relevant to the wallet.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def SendCoins(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `sendcoins`
+      SendCoins executes a request to send coins to a particular address. Unlike
+      SendMany, this RPC call only allows creating a single output at a time. If
+      neither target_conf, or sat_per_byte are set, then the internal wallet will
+      consult its fee model to determine a fee for the default confirmation
+      target.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def SubscribeTransactions(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      SubscribeTransactions creates a uni-directional stream from the server to
+      the client in which any newly discovered transactions relevant to the
+      wallet are sent over.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def SendMany(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `sendmany`
+      SendMany handles a request for a transaction that creates multiple specified
+      outputs in parallel. If neither target_conf, or sat_per_byte are set, then
+      the internal wallet will consult its fee model to determine a fee for the
+      default confirmation target.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def NewAddress(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `newaddress`
+      NewAddress creates a new address under control of the local wallet.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def NewWitnessAddress(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      NewWitnessAddress creates a new witness address under control of the local wallet.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def SignMessage(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `signmessage`
+      SignMessage signs a message with this node's private key. The returned
+      signature string is `zbase32` encoded and pubkey recoverable, meaning that
+      only the message digest and signature are needed for verification.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def VerifyMessage(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `verifymessage`
+      VerifyMessage verifies a signature over a msg. The signature must be
+      zbase32 encoded and signed by an active node in the resident node's
+      channel database. In addition to returning the validity of the signature,
+      VerifyMessage also returns the recovered pubkey from the signature.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def ConnectPeer(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `connect`
+      ConnectPeer attempts to establish a connection to a remote peer. This is at
+      the networking level, and is used for communication between nodes. This is
+      distinct from establishing a channel with a peer.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def DisconnectPeer(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `disconnect`
+      DisconnectPeer attempts to disconnect one peer from another identified by a
+      given pubKey. In the case that we currently have a pending or active channel
+      with the target peer, then this action will be not be allowed.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def ListPeers(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `listpeers`
+      ListPeers returns a verbose listing of all currently active peers.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def GetInfo(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `getinfo`
+      GetInfo returns general information concerning the lightning node including
+      it's identity pubkey, alias, the chains it is connected to, and information
+      concerning the number of open+pending channels.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def PendingChannels(self, request, context):
       """TODO(roasbeef): merge with below with bool?
+
+      * lncli: `pendingchannels`
+      PendingChannels returns a list of all the channels that are currently
+      considered "pending". A channel is pending if it has finished the funding
+      workflow and is waiting for confirmations for the funding txn, or is in the
+      process of closure, either initiated cooperatively or non-cooperatively.
       """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def ListChannels(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `listchannels`
+      ListChannels returns a description of all the open channels that this node
+      is a participant in.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def OpenChannelSync(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      OpenChannelSync is a synchronous version of the OpenChannel RPC call. This
+      call is meant to be consumed by clients to the REST proxy. As with all
+      other sync calls, all byte slices are intended to be populated as hex
+      encoded strings.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def OpenChannel(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `openchannel`
+      OpenChannel attempts to open a singly funded channel specified in the
+      request to a remote peer. Users are able to specify a target number of
+      blocks that the funding transaction should be confirmed in, or a manual fee
+      rate to us for the funding transaction. If neither are specified, then a
+      lax block confirmation target is used.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def CloseChannel(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `closechannel`
+      CloseChannel attempts to close an active channel identified by its channel
+      outpoint (ChannelPoint). The actions of this method can additionally be
+      augmented to attempt a force close after a timeout period in the case of an
+      inactive peer. If a non-force close (cooperative closure) is requested,
+      then the user can specify either a target number of blocks until the
+      closure transaction is confirmed, or a manual fee rate. If neither are
+      specified, then a default lax, block confirmation target is used.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def SendPayment(self, request_iterator, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `sendpayment`
+      SendPayment dispatches a bi-directional streaming RPC for sending payments
+      through the Lightning Network. A single RPC invocation creates a persistent
+      bi-directional stream allowing clients to rapidly send payments through the
+      Lightning Network with a single persistent connection.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def SendPaymentSync(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      SendPaymentSync is the synchronous non-streaming version of SendPayment.
+      This RPC is intended to be consumed by clients of the REST proxy.
+      Additionally, this RPC expects the destination's public key and the payment
+      hash (if any) to be encoded as hex strings.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def AddInvoice(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `addinvoice`
+      AddInvoice attempts to add a new invoice to the invoice database. Any
+      duplicated invoices are rejected, therefore all invoices *must* have a
+      unique payment preimage.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def ListInvoices(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `listinvoices`
+      ListInvoices returns a list of all the invoices currently stored within the
+      database. Any active debug invoices are ignored.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def LookupInvoice(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `lookupinvoice`
+      LookupInvoice attemps to look up an invoice according to its payment hash.
+      The passed payment hash *must* be exactly 32 bytes, if not, an error is
+      returned.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def SubscribeInvoices(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      SubscribeInvoices returns a uni-directional stream (sever -> client) for
+      notifying the client of newly added/settled invoices.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def DecodePayReq(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `decodepayreq`
+      DecodePayReq takes an encoded payment request string and attempts to decode
+      it, returning a full description of the conditions encoded within the
+      payment request.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def ListPayments(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `listpayments`
+      ListPayments returns a list of all outgoing payments.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def DeleteAllPayments(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      DeleteAllPayments deletes all outgoing payments from DB.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def DescribeGraph(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `describegraph`
+      DescribeGraph returns a description of the latest graph state from the
+      point of view of the node. The graph information is partitioned into two
+      components: all the nodes/vertexes, and all the edges that connect the
+      vertexes themselves.  As this is a directed graph, the edges also contain
+      the node directional specific routing policy which includes: the time lock
+      delta, fee information, etc.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def GetChanInfo(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `getchaninfo`
+      GetChanInfo returns the latest authenticated network announcement for the
+      given channel identified by its channel ID: an 8-byte integer which
+      uniquely identifies the location of transaction's funding output within the
+      blockchain.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def GetNodeInfo(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `getnodeinfo`
+      GetNodeInfo returns the latest advertised, aggregated, and authenticated
+      channel information for the specified node identified by its public key.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def QueryRoutes(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `queryroutes`
+      QueryRoutes attempts to query the daemon's Channel Router for a possible
+      route to a target destination capable of carrying a specific amount of
+      satoshis. The retuned route contains the full details required to craft and
+      send an HTLC, also including the necessary information that should be
+      present within the Sphinx packet encapsualted within the HTLC.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def GetNetworkInfo(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `getnetworkinfo`
+      GetNetworkInfo returns some basic stats about the known channel graph from
+      the point of view of the node.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def StopDaemon(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `stop`
+      StopDaemon will send a shutdown request to the interrupt handler, triggering
+      a graceful shutdown of the daemon.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def SubscribeChannelGraph(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      SubscribeChannelGraph launches a streaming RPC that allows the caller to
+      receive notifications upon any changes to the channel graph topology from
+      the point of view of the responding node. Events notified include: new
+      nodes coming online, nodes updating their authenticated attributes, new
+      channels being advertised, updates in the routing policy for a directional
+      channel edge, and when channels are closed on-chain.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def SetAlias(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      SetAlias sets the alias for this node; e.g. "alice"
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
     def DebugLevel(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `debuglevel`
+      DebugLevel allows a caller to programmatically set the logging verbosity of
+      lnd. The logging can be targeted according to a coarse daemon-wide logging
+      level, or in a granular fashion to specify the logging for a target
+      sub-system.
+      """
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+    def FeeReport(self, request, context):
+      """* lncli: `feereport`
+      FeeReport allows the caller to obtain a report detailing the current fee
+      schedule enforced by the node globally for each channel.
+      """
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+    def UpdateFees(self, request, context):
+      """* lncli: `updatefees`
+      UpdateFees allows the caller to update the fee schedule for all channels
+      globally, or a particular channel.
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
@@ -5174,10 +6003,112 @@ try:
             request_deserializer=DebugLevelRequest.FromString,
             response_serializer=DebugLevelResponse.SerializeToString,
         ),
+        'FeeReport': grpc.unary_unary_rpc_method_handler(
+            servicer.FeeReport,
+            request_deserializer=FeeReportRequest.FromString,
+            response_serializer=FeeReportResponse.SerializeToString,
+        ),
+        'UpdateFees': grpc.unary_unary_rpc_method_handler(
+            servicer.UpdateFees,
+            request_deserializer=FeeUpdateRequest.FromString,
+            response_serializer=FeeUpdateResponse.SerializeToString,
+        ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
         'lnrpc.Lightning', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+
+
+  class BetaWalletUnlockerServicer(object):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This class was generated
+    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
+    """The WalletUnlocker service is used to set up a wallet password for
+    lnd at first startup, and unlock a previously set up wallet.
+    """
+    def CreateWallet(self, request, context):
+      """* lncli: `create`
+      CreateWallet is used at lnd startup to set the encryption password for
+      the wallet database.
+      """
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def UnlockWallet(self, request, context):
+      """* lncli: `unlock`
+      UnlockWallet is used at startup of lnd to provide a password to unlock
+      the wallet database.
+      """
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+
+
+  class BetaWalletUnlockerStub(object):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This class was generated
+    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
+    """The WalletUnlocker service is used to set up a wallet password for
+    lnd at first startup, and unlock a previously set up wallet.
+    """
+    def CreateWallet(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      """* lncli: `create`
+      CreateWallet is used at lnd startup to set the encryption password for
+      the wallet database.
+      """
+      raise NotImplementedError()
+    CreateWallet.future = None
+    def UnlockWallet(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      """* lncli: `unlock`
+      UnlockWallet is used at startup of lnd to provide a password to unlock
+      the wallet database.
+      """
+      raise NotImplementedError()
+    UnlockWallet.future = None
+
+
+  def beta_create_WalletUnlocker_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This function was
+    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
+    request_deserializers = {
+      ('lnrpc.WalletUnlocker', 'CreateWallet'): CreateWalletRequest.FromString,
+      ('lnrpc.WalletUnlocker', 'UnlockWallet'): UnlockWalletRequest.FromString,
+    }
+    response_serializers = {
+      ('lnrpc.WalletUnlocker', 'CreateWallet'): CreateWalletResponse.SerializeToString,
+      ('lnrpc.WalletUnlocker', 'UnlockWallet'): UnlockWalletResponse.SerializeToString,
+    }
+    method_implementations = {
+      ('lnrpc.WalletUnlocker', 'CreateWallet'): face_utilities.unary_unary_inline(servicer.CreateWallet),
+      ('lnrpc.WalletUnlocker', 'UnlockWallet'): face_utilities.unary_unary_inline(servicer.UnlockWallet),
+    }
+    server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
+    return beta_implementations.server(method_implementations, options=server_options)
+
+
+  def beta_create_WalletUnlocker_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This function was
+    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
+    request_serializers = {
+      ('lnrpc.WalletUnlocker', 'CreateWallet'): CreateWalletRequest.SerializeToString,
+      ('lnrpc.WalletUnlocker', 'UnlockWallet'): UnlockWalletRequest.SerializeToString,
+    }
+    response_deserializers = {
+      ('lnrpc.WalletUnlocker', 'CreateWallet'): CreateWalletResponse.FromString,
+      ('lnrpc.WalletUnlocker', 'UnlockWallet'): UnlockWalletResponse.FromString,
+    }
+    cardinalities = {
+      'CreateWallet': cardinality.Cardinality.UNARY_UNARY,
+      'UnlockWallet': cardinality.Cardinality.UNARY_UNARY,
+    }
+    stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
+    return beta_implementations.dynamic_stub(channel, 'lnrpc.WalletUnlocker', cardinalities, options=stub_options)
 
 
   class BetaLightningServicer(object):
@@ -5189,152 +6120,281 @@ try:
     # missing associated documentation comment in .proto file
     pass
     def WalletBalance(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `walletbalance`
+      WalletBalance returns total unspent outputs(confirmed and unconfirmed), all confirmed unspent outputs and all unconfirmed unspent outputs under control
+      by the wallet. This method can be modified by having the request specify
+      only witness outputs should be factored into the final output sum.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def ChannelBalance(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `channelbalance`
+      ChannelBalance returns the total funds available across all open channels
+      in satoshis.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def GetTransactions(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `listchaintxns`
+      GetTransactions returns a list describing all the known transactions
+      relevant to the wallet.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def SendCoins(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `sendcoins`
+      SendCoins executes a request to send coins to a particular address. Unlike
+      SendMany, this RPC call only allows creating a single output at a time. If
+      neither target_conf, or sat_per_byte are set, then the internal wallet will
+      consult its fee model to determine a fee for the default confirmation
+      target.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def SubscribeTransactions(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      SubscribeTransactions creates a uni-directional stream from the server to
+      the client in which any newly discovered transactions relevant to the
+      wallet are sent over.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def SendMany(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `sendmany`
+      SendMany handles a request for a transaction that creates multiple specified
+      outputs in parallel. If neither target_conf, or sat_per_byte are set, then
+      the internal wallet will consult its fee model to determine a fee for the
+      default confirmation target.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def NewAddress(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `newaddress`
+      NewAddress creates a new address under control of the local wallet.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def NewWitnessAddress(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      NewWitnessAddress creates a new witness address under control of the local wallet.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def SignMessage(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `signmessage`
+      SignMessage signs a message with this node's private key. The returned
+      signature string is `zbase32` encoded and pubkey recoverable, meaning that
+      only the message digest and signature are needed for verification.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def VerifyMessage(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `verifymessage`
+      VerifyMessage verifies a signature over a msg. The signature must be
+      zbase32 encoded and signed by an active node in the resident node's
+      channel database. In addition to returning the validity of the signature,
+      VerifyMessage also returns the recovered pubkey from the signature.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def ConnectPeer(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `connect`
+      ConnectPeer attempts to establish a connection to a remote peer. This is at
+      the networking level, and is used for communication between nodes. This is
+      distinct from establishing a channel with a peer.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def DisconnectPeer(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `disconnect`
+      DisconnectPeer attempts to disconnect one peer from another identified by a
+      given pubKey. In the case that we currently have a pending or active channel
+      with the target peer, then this action will be not be allowed.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def ListPeers(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `listpeers`
+      ListPeers returns a verbose listing of all currently active peers.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def GetInfo(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `getinfo`
+      GetInfo returns general information concerning the lightning node including
+      it's identity pubkey, alias, the chains it is connected to, and information
+      concerning the number of open+pending channels.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def PendingChannels(self, request, context):
       """TODO(roasbeef): merge with below with bool?
+
+      * lncli: `pendingchannels`
+      PendingChannels returns a list of all the channels that are currently
+      considered "pending". A channel is pending if it has finished the funding
+      workflow and is waiting for confirmations for the funding txn, or is in the
+      process of closure, either initiated cooperatively or non-cooperatively.
       """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def ListChannels(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `listchannels`
+      ListChannels returns a description of all the open channels that this node
+      is a participant in.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def OpenChannelSync(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      OpenChannelSync is a synchronous version of the OpenChannel RPC call. This
+      call is meant to be consumed by clients to the REST proxy. As with all
+      other sync calls, all byte slices are intended to be populated as hex
+      encoded strings.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def OpenChannel(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `openchannel`
+      OpenChannel attempts to open a singly funded channel specified in the
+      request to a remote peer. Users are able to specify a target number of
+      blocks that the funding transaction should be confirmed in, or a manual fee
+      rate to us for the funding transaction. If neither are specified, then a
+      lax block confirmation target is used.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def CloseChannel(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `closechannel`
+      CloseChannel attempts to close an active channel identified by its channel
+      outpoint (ChannelPoint). The actions of this method can additionally be
+      augmented to attempt a force close after a timeout period in the case of an
+      inactive peer. If a non-force close (cooperative closure) is requested,
+      then the user can specify either a target number of blocks until the
+      closure transaction is confirmed, or a manual fee rate. If neither are
+      specified, then a default lax, block confirmation target is used.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def SendPayment(self, request_iterator, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `sendpayment`
+      SendPayment dispatches a bi-directional streaming RPC for sending payments
+      through the Lightning Network. A single RPC invocation creates a persistent
+      bi-directional stream allowing clients to rapidly send payments through the
+      Lightning Network with a single persistent connection.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def SendPaymentSync(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      SendPaymentSync is the synchronous non-streaming version of SendPayment.
+      This RPC is intended to be consumed by clients of the REST proxy.
+      Additionally, this RPC expects the destination's public key and the payment
+      hash (if any) to be encoded as hex strings.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def AddInvoice(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `addinvoice`
+      AddInvoice attempts to add a new invoice to the invoice database. Any
+      duplicated invoices are rejected, therefore all invoices *must* have a
+      unique payment preimage.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def ListInvoices(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `listinvoices`
+      ListInvoices returns a list of all the invoices currently stored within the
+      database. Any active debug invoices are ignored.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def LookupInvoice(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `lookupinvoice`
+      LookupInvoice attemps to look up an invoice according to its payment hash.
+      The passed payment hash *must* be exactly 32 bytes, if not, an error is
+      returned.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def SubscribeInvoices(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      SubscribeInvoices returns a uni-directional stream (sever -> client) for
+      notifying the client of newly added/settled invoices.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def DecodePayReq(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `decodepayreq`
+      DecodePayReq takes an encoded payment request string and attempts to decode
+      it, returning a full description of the conditions encoded within the
+      payment request.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def ListPayments(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `listpayments`
+      ListPayments returns a list of all outgoing payments.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def DeleteAllPayments(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      DeleteAllPayments deletes all outgoing payments from DB.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def DescribeGraph(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `describegraph`
+      DescribeGraph returns a description of the latest graph state from the
+      point of view of the node. The graph information is partitioned into two
+      components: all the nodes/vertexes, and all the edges that connect the
+      vertexes themselves.  As this is a directed graph, the edges also contain
+      the node directional specific routing policy which includes: the time lock
+      delta, fee information, etc.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def GetChanInfo(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `getchaninfo`
+      GetChanInfo returns the latest authenticated network announcement for the
+      given channel identified by its channel ID: an 8-byte integer which
+      uniquely identifies the location of transaction's funding output within the
+      blockchain.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def GetNodeInfo(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `getnodeinfo`
+      GetNodeInfo returns the latest advertised, aggregated, and authenticated
+      channel information for the specified node identified by its public key.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def QueryRoutes(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `queryroutes`
+      QueryRoutes attempts to query the daemon's Channel Router for a possible
+      route to a target destination capable of carrying a specific amount of
+      satoshis. The retuned route contains the full details required to craft and
+      send an HTLC, also including the necessary information that should be
+      present within the Sphinx packet encapsualted within the HTLC.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def GetNetworkInfo(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `getnetworkinfo`
+      GetNetworkInfo returns some basic stats about the known channel graph from
+      the point of view of the node.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def StopDaemon(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `stop`
+      StopDaemon will send a shutdown request to the interrupt handler, triggering
+      a graceful shutdown of the daemon.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def SubscribeChannelGraph(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      SubscribeChannelGraph launches a streaming RPC that allows the caller to
+      receive notifications upon any changes to the channel graph topology from
+      the point of view of the responding node. Events notified include: new
+      nodes coming online, nodes updating their authenticated attributes, new
+      channels being advertised, updates in the routing policy for a directional
+      channel edge, and when channels are closed on-chain.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def SetAlias(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      SetAlias sets the alias for this node; e.g. "alice"
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def DebugLevel(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `debuglevel`
+      DebugLevel allows a caller to programmatically set the logging verbosity of
+      lnd. The logging can be targeted according to a coarse daemon-wide logging
+      level, or in a granular fashion to specify the logging for a target
+      sub-system.
+      """
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def FeeReport(self, request, context):
+      """* lncli: `feereport`
+      FeeReport allows the caller to obtain a report detailing the current fee
+      schedule enforced by the node globally for each channel.
+      """
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def UpdateFees(self, request, context):
+      """* lncli: `updatefees`
+      UpdateFees allows the caller to update the fee schedule for all channels
+      globally, or a particular channel.
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
 
 
@@ -5347,184 +6407,315 @@ try:
     # missing associated documentation comment in .proto file
     pass
     def WalletBalance(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `walletbalance`
+      WalletBalance returns total unspent outputs(confirmed and unconfirmed), all confirmed unspent outputs and all unconfirmed unspent outputs under control
+      by the wallet. This method can be modified by having the request specify
+      only witness outputs should be factored into the final output sum.
+      """
       raise NotImplementedError()
     WalletBalance.future = None
     def ChannelBalance(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `channelbalance`
+      ChannelBalance returns the total funds available across all open channels
+      in satoshis.
+      """
       raise NotImplementedError()
     ChannelBalance.future = None
     def GetTransactions(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `listchaintxns`
+      GetTransactions returns a list describing all the known transactions
+      relevant to the wallet.
+      """
       raise NotImplementedError()
     GetTransactions.future = None
     def SendCoins(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `sendcoins`
+      SendCoins executes a request to send coins to a particular address. Unlike
+      SendMany, this RPC call only allows creating a single output at a time. If
+      neither target_conf, or sat_per_byte are set, then the internal wallet will
+      consult its fee model to determine a fee for the default confirmation
+      target.
+      """
       raise NotImplementedError()
     SendCoins.future = None
     def SubscribeTransactions(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      SubscribeTransactions creates a uni-directional stream from the server to
+      the client in which any newly discovered transactions relevant to the
+      wallet are sent over.
+      """
       raise NotImplementedError()
     def SendMany(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `sendmany`
+      SendMany handles a request for a transaction that creates multiple specified
+      outputs in parallel. If neither target_conf, or sat_per_byte are set, then
+      the internal wallet will consult its fee model to determine a fee for the
+      default confirmation target.
+      """
       raise NotImplementedError()
     SendMany.future = None
     def NewAddress(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `newaddress`
+      NewAddress creates a new address under control of the local wallet.
+      """
       raise NotImplementedError()
     NewAddress.future = None
     def NewWitnessAddress(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      NewWitnessAddress creates a new witness address under control of the local wallet.
+      """
       raise NotImplementedError()
     NewWitnessAddress.future = None
     def SignMessage(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `signmessage`
+      SignMessage signs a message with this node's private key. The returned
+      signature string is `zbase32` encoded and pubkey recoverable, meaning that
+      only the message digest and signature are needed for verification.
+      """
       raise NotImplementedError()
     SignMessage.future = None
     def VerifyMessage(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `verifymessage`
+      VerifyMessage verifies a signature over a msg. The signature must be
+      zbase32 encoded and signed by an active node in the resident node's
+      channel database. In addition to returning the validity of the signature,
+      VerifyMessage also returns the recovered pubkey from the signature.
+      """
       raise NotImplementedError()
     VerifyMessage.future = None
     def ConnectPeer(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `connect`
+      ConnectPeer attempts to establish a connection to a remote peer. This is at
+      the networking level, and is used for communication between nodes. This is
+      distinct from establishing a channel with a peer.
+      """
       raise NotImplementedError()
     ConnectPeer.future = None
     def DisconnectPeer(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `disconnect`
+      DisconnectPeer attempts to disconnect one peer from another identified by a
+      given pubKey. In the case that we currently have a pending or active channel
+      with the target peer, then this action will be not be allowed.
+      """
       raise NotImplementedError()
     DisconnectPeer.future = None
     def ListPeers(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `listpeers`
+      ListPeers returns a verbose listing of all currently active peers.
+      """
       raise NotImplementedError()
     ListPeers.future = None
     def GetInfo(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `getinfo`
+      GetInfo returns general information concerning the lightning node including
+      it's identity pubkey, alias, the chains it is connected to, and information
+      concerning the number of open+pending channels.
+      """
       raise NotImplementedError()
     GetInfo.future = None
     def PendingChannels(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       """TODO(roasbeef): merge with below with bool?
+
+      * lncli: `pendingchannels`
+      PendingChannels returns a list of all the channels that are currently
+      considered "pending". A channel is pending if it has finished the funding
+      workflow and is waiting for confirmations for the funding txn, or is in the
+      process of closure, either initiated cooperatively or non-cooperatively.
       """
       raise NotImplementedError()
     PendingChannels.future = None
     def ListChannels(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `listchannels`
+      ListChannels returns a description of all the open channels that this node
+      is a participant in.
+      """
       raise NotImplementedError()
     ListChannels.future = None
     def OpenChannelSync(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      OpenChannelSync is a synchronous version of the OpenChannel RPC call. This
+      call is meant to be consumed by clients to the REST proxy. As with all
+      other sync calls, all byte slices are intended to be populated as hex
+      encoded strings.
+      """
       raise NotImplementedError()
     OpenChannelSync.future = None
     def OpenChannel(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `openchannel`
+      OpenChannel attempts to open a singly funded channel specified in the
+      request to a remote peer. Users are able to specify a target number of
+      blocks that the funding transaction should be confirmed in, or a manual fee
+      rate to us for the funding transaction. If neither are specified, then a
+      lax block confirmation target is used.
+      """
       raise NotImplementedError()
     def CloseChannel(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `closechannel`
+      CloseChannel attempts to close an active channel identified by its channel
+      outpoint (ChannelPoint). The actions of this method can additionally be
+      augmented to attempt a force close after a timeout period in the case of an
+      inactive peer. If a non-force close (cooperative closure) is requested,
+      then the user can specify either a target number of blocks until the
+      closure transaction is confirmed, or a manual fee rate. If neither are
+      specified, then a default lax, block confirmation target is used.
+      """
       raise NotImplementedError()
     def SendPayment(self, request_iterator, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `sendpayment`
+      SendPayment dispatches a bi-directional streaming RPC for sending payments
+      through the Lightning Network. A single RPC invocation creates a persistent
+      bi-directional stream allowing clients to rapidly send payments through the
+      Lightning Network with a single persistent connection.
+      """
       raise NotImplementedError()
     def SendPaymentSync(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      SendPaymentSync is the synchronous non-streaming version of SendPayment.
+      This RPC is intended to be consumed by clients of the REST proxy.
+      Additionally, this RPC expects the destination's public key and the payment
+      hash (if any) to be encoded as hex strings.
+      """
       raise NotImplementedError()
     SendPaymentSync.future = None
     def AddInvoice(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `addinvoice`
+      AddInvoice attempts to add a new invoice to the invoice database. Any
+      duplicated invoices are rejected, therefore all invoices *must* have a
+      unique payment preimage.
+      """
       raise NotImplementedError()
     AddInvoice.future = None
     def ListInvoices(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `listinvoices`
+      ListInvoices returns a list of all the invoices currently stored within the
+      database. Any active debug invoices are ignored.
+      """
       raise NotImplementedError()
     ListInvoices.future = None
     def LookupInvoice(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `lookupinvoice`
+      LookupInvoice attemps to look up an invoice according to its payment hash.
+      The passed payment hash *must* be exactly 32 bytes, if not, an error is
+      returned.
+      """
       raise NotImplementedError()
     LookupInvoice.future = None
     def SubscribeInvoices(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      SubscribeInvoices returns a uni-directional stream (sever -> client) for
+      notifying the client of newly added/settled invoices.
+      """
       raise NotImplementedError()
     def DecodePayReq(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `decodepayreq`
+      DecodePayReq takes an encoded payment request string and attempts to decode
+      it, returning a full description of the conditions encoded within the
+      payment request.
+      """
       raise NotImplementedError()
     DecodePayReq.future = None
     def ListPayments(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `listpayments`
+      ListPayments returns a list of all outgoing payments.
+      """
       raise NotImplementedError()
     ListPayments.future = None
     def DeleteAllPayments(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      DeleteAllPayments deletes all outgoing payments from DB.
+      """
       raise NotImplementedError()
     DeleteAllPayments.future = None
     def DescribeGraph(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `describegraph`
+      DescribeGraph returns a description of the latest graph state from the
+      point of view of the node. The graph information is partitioned into two
+      components: all the nodes/vertexes, and all the edges that connect the
+      vertexes themselves.  As this is a directed graph, the edges also contain
+      the node directional specific routing policy which includes: the time lock
+      delta, fee information, etc.
+      """
       raise NotImplementedError()
     DescribeGraph.future = None
     def GetChanInfo(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `getchaninfo`
+      GetChanInfo returns the latest authenticated network announcement for the
+      given channel identified by its channel ID: an 8-byte integer which
+      uniquely identifies the location of transaction's funding output within the
+      blockchain.
+      """
       raise NotImplementedError()
     GetChanInfo.future = None
     def GetNodeInfo(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `getnodeinfo`
+      GetNodeInfo returns the latest advertised, aggregated, and authenticated
+      channel information for the specified node identified by its public key.
+      """
       raise NotImplementedError()
     GetNodeInfo.future = None
     def QueryRoutes(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `queryroutes`
+      QueryRoutes attempts to query the daemon's Channel Router for a possible
+      route to a target destination capable of carrying a specific amount of
+      satoshis. The retuned route contains the full details required to craft and
+      send an HTLC, also including the necessary information that should be
+      present within the Sphinx packet encapsualted within the HTLC.
+      """
       raise NotImplementedError()
     QueryRoutes.future = None
     def GetNetworkInfo(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `getnetworkinfo`
+      GetNetworkInfo returns some basic stats about the known channel graph from
+      the point of view of the node.
+      """
       raise NotImplementedError()
     GetNetworkInfo.future = None
     def StopDaemon(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `stop`
+      StopDaemon will send a shutdown request to the interrupt handler, triggering
+      a graceful shutdown of the daemon.
+      """
       raise NotImplementedError()
     StopDaemon.future = None
     def SubscribeChannelGraph(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      SubscribeChannelGraph launches a streaming RPC that allows the caller to
+      receive notifications upon any changes to the channel graph topology from
+      the point of view of the responding node. Events notified include: new
+      nodes coming online, nodes updating their authenticated attributes, new
+      channels being advertised, updates in the routing policy for a directional
+      channel edge, and when channels are closed on-chain.
+      """
       raise NotImplementedError()
     def SetAlias(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """*
+      SetAlias sets the alias for this node; e.g. "alice"
+      """
       raise NotImplementedError()
     SetAlias.future = None
     def DebugLevel(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+      """* lncli: `debuglevel`
+      DebugLevel allows a caller to programmatically set the logging verbosity of
+      lnd. The logging can be targeted according to a coarse daemon-wide logging
+      level, or in a granular fashion to specify the logging for a target
+      sub-system.
+      """
       raise NotImplementedError()
     DebugLevel.future = None
+    def FeeReport(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      """* lncli: `feereport`
+      FeeReport allows the caller to obtain a report detailing the current fee
+      schedule enforced by the node globally for each channel.
+      """
+      raise NotImplementedError()
+    FeeReport.future = None
+    def UpdateFees(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      """* lncli: `updatefees`
+      UpdateFees allows the caller to update the fee schedule for all channels
+      globally, or a particular channel.
+      """
+      raise NotImplementedError()
+    UpdateFees.future = None
 
 
   def beta_create_Lightning_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
@@ -5543,6 +6734,7 @@ try:
       ('lnrpc.Lightning', 'DeleteAllPayments'): DeleteAllPaymentsRequest.FromString,
       ('lnrpc.Lightning', 'DescribeGraph'): ChannelGraphRequest.FromString,
       ('lnrpc.Lightning', 'DisconnectPeer'): DisconnectPeerRequest.FromString,
+      ('lnrpc.Lightning', 'FeeReport'): FeeReportRequest.FromString,
       ('lnrpc.Lightning', 'GetChanInfo'): ChanInfoRequest.FromString,
       ('lnrpc.Lightning', 'GetInfo'): GetInfoRequest.FromString,
       ('lnrpc.Lightning', 'GetNetworkInfo'): NetworkInfoRequest.FromString,
@@ -5569,6 +6761,7 @@ try:
       ('lnrpc.Lightning', 'SubscribeChannelGraph'): GraphTopologySubscription.FromString,
       ('lnrpc.Lightning', 'SubscribeInvoices'): InvoiceSubscription.FromString,
       ('lnrpc.Lightning', 'SubscribeTransactions'): GetTransactionsRequest.FromString,
+      ('lnrpc.Lightning', 'UpdateFees'): FeeUpdateRequest.FromString,
       ('lnrpc.Lightning', 'VerifyMessage'): VerifyMessageRequest.FromString,
       ('lnrpc.Lightning', 'WalletBalance'): WalletBalanceRequest.FromString,
     }
@@ -5582,6 +6775,7 @@ try:
       ('lnrpc.Lightning', 'DeleteAllPayments'): DeleteAllPaymentsResponse.SerializeToString,
       ('lnrpc.Lightning', 'DescribeGraph'): ChannelGraph.SerializeToString,
       ('lnrpc.Lightning', 'DisconnectPeer'): DisconnectPeerResponse.SerializeToString,
+      ('lnrpc.Lightning', 'FeeReport'): FeeReportResponse.SerializeToString,
       ('lnrpc.Lightning', 'GetChanInfo'): ChannelEdge.SerializeToString,
       ('lnrpc.Lightning', 'GetInfo'): GetInfoResponse.SerializeToString,
       ('lnrpc.Lightning', 'GetNetworkInfo'): NetworkInfo.SerializeToString,
@@ -5608,6 +6802,7 @@ try:
       ('lnrpc.Lightning', 'SubscribeChannelGraph'): GraphTopologyUpdate.SerializeToString,
       ('lnrpc.Lightning', 'SubscribeInvoices'): Invoice.SerializeToString,
       ('lnrpc.Lightning', 'SubscribeTransactions'): Transaction.SerializeToString,
+      ('lnrpc.Lightning', 'UpdateFees'): FeeUpdateResponse.SerializeToString,
       ('lnrpc.Lightning', 'VerifyMessage'): VerifyMessageResponse.SerializeToString,
       ('lnrpc.Lightning', 'WalletBalance'): WalletBalanceResponse.SerializeToString,
     }
@@ -5621,6 +6816,7 @@ try:
       ('lnrpc.Lightning', 'DeleteAllPayments'): face_utilities.unary_unary_inline(servicer.DeleteAllPayments),
       ('lnrpc.Lightning', 'DescribeGraph'): face_utilities.unary_unary_inline(servicer.DescribeGraph),
       ('lnrpc.Lightning', 'DisconnectPeer'): face_utilities.unary_unary_inline(servicer.DisconnectPeer),
+      ('lnrpc.Lightning', 'FeeReport'): face_utilities.unary_unary_inline(servicer.FeeReport),
       ('lnrpc.Lightning', 'GetChanInfo'): face_utilities.unary_unary_inline(servicer.GetChanInfo),
       ('lnrpc.Lightning', 'GetInfo'): face_utilities.unary_unary_inline(servicer.GetInfo),
       ('lnrpc.Lightning', 'GetNetworkInfo'): face_utilities.unary_unary_inline(servicer.GetNetworkInfo),
@@ -5647,6 +6843,7 @@ try:
       ('lnrpc.Lightning', 'SubscribeChannelGraph'): face_utilities.unary_stream_inline(servicer.SubscribeChannelGraph),
       ('lnrpc.Lightning', 'SubscribeInvoices'): face_utilities.unary_stream_inline(servicer.SubscribeInvoices),
       ('lnrpc.Lightning', 'SubscribeTransactions'): face_utilities.unary_stream_inline(servicer.SubscribeTransactions),
+      ('lnrpc.Lightning', 'UpdateFees'): face_utilities.unary_unary_inline(servicer.UpdateFees),
       ('lnrpc.Lightning', 'VerifyMessage'): face_utilities.unary_unary_inline(servicer.VerifyMessage),
       ('lnrpc.Lightning', 'WalletBalance'): face_utilities.unary_unary_inline(servicer.WalletBalance),
     }
@@ -5670,6 +6867,7 @@ try:
       ('lnrpc.Lightning', 'DeleteAllPayments'): DeleteAllPaymentsRequest.SerializeToString,
       ('lnrpc.Lightning', 'DescribeGraph'): ChannelGraphRequest.SerializeToString,
       ('lnrpc.Lightning', 'DisconnectPeer'): DisconnectPeerRequest.SerializeToString,
+      ('lnrpc.Lightning', 'FeeReport'): FeeReportRequest.SerializeToString,
       ('lnrpc.Lightning', 'GetChanInfo'): ChanInfoRequest.SerializeToString,
       ('lnrpc.Lightning', 'GetInfo'): GetInfoRequest.SerializeToString,
       ('lnrpc.Lightning', 'GetNetworkInfo'): NetworkInfoRequest.SerializeToString,
@@ -5696,6 +6894,7 @@ try:
       ('lnrpc.Lightning', 'SubscribeChannelGraph'): GraphTopologySubscription.SerializeToString,
       ('lnrpc.Lightning', 'SubscribeInvoices'): InvoiceSubscription.SerializeToString,
       ('lnrpc.Lightning', 'SubscribeTransactions'): GetTransactionsRequest.SerializeToString,
+      ('lnrpc.Lightning', 'UpdateFees'): FeeUpdateRequest.SerializeToString,
       ('lnrpc.Lightning', 'VerifyMessage'): VerifyMessageRequest.SerializeToString,
       ('lnrpc.Lightning', 'WalletBalance'): WalletBalanceRequest.SerializeToString,
     }
@@ -5709,6 +6908,7 @@ try:
       ('lnrpc.Lightning', 'DeleteAllPayments'): DeleteAllPaymentsResponse.FromString,
       ('lnrpc.Lightning', 'DescribeGraph'): ChannelGraph.FromString,
       ('lnrpc.Lightning', 'DisconnectPeer'): DisconnectPeerResponse.FromString,
+      ('lnrpc.Lightning', 'FeeReport'): FeeReportResponse.FromString,
       ('lnrpc.Lightning', 'GetChanInfo'): ChannelEdge.FromString,
       ('lnrpc.Lightning', 'GetInfo'): GetInfoResponse.FromString,
       ('lnrpc.Lightning', 'GetNetworkInfo'): NetworkInfo.FromString,
@@ -5735,6 +6935,7 @@ try:
       ('lnrpc.Lightning', 'SubscribeChannelGraph'): GraphTopologyUpdate.FromString,
       ('lnrpc.Lightning', 'SubscribeInvoices'): Invoice.FromString,
       ('lnrpc.Lightning', 'SubscribeTransactions'): Transaction.FromString,
+      ('lnrpc.Lightning', 'UpdateFees'): FeeUpdateResponse.FromString,
       ('lnrpc.Lightning', 'VerifyMessage'): VerifyMessageResponse.FromString,
       ('lnrpc.Lightning', 'WalletBalance'): WalletBalanceResponse.FromString,
     }
@@ -5748,6 +6949,7 @@ try:
       'DeleteAllPayments': cardinality.Cardinality.UNARY_UNARY,
       'DescribeGraph': cardinality.Cardinality.UNARY_UNARY,
       'DisconnectPeer': cardinality.Cardinality.UNARY_UNARY,
+      'FeeReport': cardinality.Cardinality.UNARY_UNARY,
       'GetChanInfo': cardinality.Cardinality.UNARY_UNARY,
       'GetInfo': cardinality.Cardinality.UNARY_UNARY,
       'GetNetworkInfo': cardinality.Cardinality.UNARY_UNARY,
@@ -5774,6 +6976,7 @@ try:
       'SubscribeChannelGraph': cardinality.Cardinality.UNARY_STREAM,
       'SubscribeInvoices': cardinality.Cardinality.UNARY_STREAM,
       'SubscribeTransactions': cardinality.Cardinality.UNARY_STREAM,
+      'UpdateFees': cardinality.Cardinality.UNARY_UNARY,
       'VerifyMessage': cardinality.Cardinality.UNARY_UNARY,
       'WalletBalance': cardinality.Cardinality.UNARY_UNARY,
     }

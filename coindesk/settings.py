@@ -16,6 +16,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 LND_RPCHOST = "localhost:10002"
+GRPC_SSL_CIPHER_SUITES = "HIGH+ECDSA"
 MIN_VIEW_AMOUNT = 1000
 MIN_UPVOTE_AMOUNT = 1000
 

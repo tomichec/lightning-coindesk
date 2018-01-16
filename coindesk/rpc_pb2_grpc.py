@@ -4,6 +4,71 @@ import grpc
 import rpc_pb2 as rpc__pb2
 
 
+class WalletUnlockerStub(object):
+  """The WalletUnlocker service is used to set up a wallet password for
+  lnd at first startup, and unlock a previously set up wallet.
+  """
+
+  def __init__(self, channel):
+    """Constructor.
+
+    Args:
+      channel: A grpc.Channel.
+    """
+    self.CreateWallet = channel.unary_unary(
+        '/lnrpc.WalletUnlocker/CreateWallet',
+        request_serializer=rpc__pb2.CreateWalletRequest.SerializeToString,
+        response_deserializer=rpc__pb2.CreateWalletResponse.FromString,
+        )
+    self.UnlockWallet = channel.unary_unary(
+        '/lnrpc.WalletUnlocker/UnlockWallet',
+        request_serializer=rpc__pb2.UnlockWalletRequest.SerializeToString,
+        response_deserializer=rpc__pb2.UnlockWalletResponse.FromString,
+        )
+
+
+class WalletUnlockerServicer(object):
+  """The WalletUnlocker service is used to set up a wallet password for
+  lnd at first startup, and unlock a previously set up wallet.
+  """
+
+  def CreateWallet(self, request, context):
+    """* lncli: `create`
+    CreateWallet is used at lnd startup to set the encryption password for
+    the wallet database.
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def UnlockWallet(self, request, context):
+    """* lncli: `unlock`
+    UnlockWallet is used at startup of lnd to provide a password to unlock
+    the wallet database.
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+
+def add_WalletUnlockerServicer_to_server(servicer, server):
+  rpc_method_handlers = {
+      'CreateWallet': grpc.unary_unary_rpc_method_handler(
+          servicer.CreateWallet,
+          request_deserializer=rpc__pb2.CreateWalletRequest.FromString,
+          response_serializer=rpc__pb2.CreateWalletResponse.SerializeToString,
+      ),
+      'UnlockWallet': grpc.unary_unary_rpc_method_handler(
+          servicer.UnlockWallet,
+          request_deserializer=rpc__pb2.UnlockWalletRequest.FromString,
+          response_serializer=rpc__pb2.UnlockWalletResponse.SerializeToString,
+      ),
+  }
+  generic_handler = grpc.method_handlers_generic_handler(
+      'lnrpc.WalletUnlocker', rpc_method_handlers)
+  server.add_generic_rpc_handlers((generic_handler,))
+
+
 class LightningStub(object):
   # missing associated documentation comment in .proto file
   pass
@@ -199,6 +264,16 @@ class LightningStub(object):
         request_serializer=rpc__pb2.DebugLevelRequest.SerializeToString,
         response_deserializer=rpc__pb2.DebugLevelResponse.FromString,
         )
+    self.FeeReport = channel.unary_unary(
+        '/lnrpc.Lightning/FeeReport',
+        request_serializer=rpc__pb2.FeeReportRequest.SerializeToString,
+        response_deserializer=rpc__pb2.FeeReportResponse.FromString,
+        )
+    self.UpdateFees = channel.unary_unary(
+        '/lnrpc.Lightning/UpdateFees',
+        request_serializer=rpc__pb2.FeeUpdateRequest.SerializeToString,
+        response_deserializer=rpc__pb2.FeeUpdateResponse.FromString,
+        )
 
 
 class LightningServicer(object):
@@ -206,260 +281,395 @@ class LightningServicer(object):
   pass
 
   def WalletBalance(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `walletbalance`
+    WalletBalance returns total unspent outputs(confirmed and unconfirmed), all confirmed unspent outputs and all unconfirmed unspent outputs under control
+    by the wallet. This method can be modified by having the request specify
+    only witness outputs should be factored into the final output sum.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def ChannelBalance(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `channelbalance`
+    ChannelBalance returns the total funds available across all open channels
+    in satoshis.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def GetTransactions(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `listchaintxns`
+    GetTransactions returns a list describing all the known transactions
+    relevant to the wallet.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def SendCoins(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `sendcoins`
+    SendCoins executes a request to send coins to a particular address. Unlike
+    SendMany, this RPC call only allows creating a single output at a time. If
+    neither target_conf, or sat_per_byte are set, then the internal wallet will
+    consult its fee model to determine a fee for the default confirmation
+    target.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def SubscribeTransactions(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """*
+    SubscribeTransactions creates a uni-directional stream from the server to
+    the client in which any newly discovered transactions relevant to the
+    wallet are sent over.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def SendMany(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `sendmany`
+    SendMany handles a request for a transaction that creates multiple specified
+    outputs in parallel. If neither target_conf, or sat_per_byte are set, then
+    the internal wallet will consult its fee model to determine a fee for the
+    default confirmation target.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def NewAddress(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `newaddress`
+    NewAddress creates a new address under control of the local wallet.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def NewWitnessAddress(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """*
+    NewWitnessAddress creates a new witness address under control of the local wallet.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def SignMessage(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `signmessage`
+    SignMessage signs a message with this node's private key. The returned
+    signature string is `zbase32` encoded and pubkey recoverable, meaning that
+    only the message digest and signature are needed for verification.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def VerifyMessage(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `verifymessage`
+    VerifyMessage verifies a signature over a msg. The signature must be
+    zbase32 encoded and signed by an active node in the resident node's
+    channel database. In addition to returning the validity of the signature,
+    VerifyMessage also returns the recovered pubkey from the signature.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def ConnectPeer(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `connect`
+    ConnectPeer attempts to establish a connection to a remote peer. This is at
+    the networking level, and is used for communication between nodes. This is
+    distinct from establishing a channel with a peer.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def DisconnectPeer(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `disconnect`
+    DisconnectPeer attempts to disconnect one peer from another identified by a
+    given pubKey. In the case that we currently have a pending or active channel
+    with the target peer, then this action will be not be allowed.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def ListPeers(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `listpeers`
+    ListPeers returns a verbose listing of all currently active peers.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def GetInfo(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `getinfo`
+    GetInfo returns general information concerning the lightning node including
+    it's identity pubkey, alias, the chains it is connected to, and information
+    concerning the number of open+pending channels.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def PendingChannels(self, request, context):
     """TODO(roasbeef): merge with below with bool?
+
+    * lncli: `pendingchannels`
+    PendingChannels returns a list of all the channels that are currently
+    considered "pending". A channel is pending if it has finished the funding
+    workflow and is waiting for confirmations for the funding txn, or is in the
+    process of closure, either initiated cooperatively or non-cooperatively.
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def ListChannels(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `listchannels`
+    ListChannels returns a description of all the open channels that this node
+    is a participant in.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def OpenChannelSync(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """*
+    OpenChannelSync is a synchronous version of the OpenChannel RPC call. This
+    call is meant to be consumed by clients to the REST proxy. As with all
+    other sync calls, all byte slices are intended to be populated as hex
+    encoded strings.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def OpenChannel(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `openchannel`
+    OpenChannel attempts to open a singly funded channel specified in the
+    request to a remote peer. Users are able to specify a target number of
+    blocks that the funding transaction should be confirmed in, or a manual fee
+    rate to us for the funding transaction. If neither are specified, then a
+    lax block confirmation target is used.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def CloseChannel(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `closechannel`
+    CloseChannel attempts to close an active channel identified by its channel
+    outpoint (ChannelPoint). The actions of this method can additionally be
+    augmented to attempt a force close after a timeout period in the case of an
+    inactive peer. If a non-force close (cooperative closure) is requested,
+    then the user can specify either a target number of blocks until the
+    closure transaction is confirmed, or a manual fee rate. If neither are
+    specified, then a default lax, block confirmation target is used.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def SendPayment(self, request_iterator, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `sendpayment`
+    SendPayment dispatches a bi-directional streaming RPC for sending payments
+    through the Lightning Network. A single RPC invocation creates a persistent
+    bi-directional stream allowing clients to rapidly send payments through the
+    Lightning Network with a single persistent connection.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def SendPaymentSync(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """*
+    SendPaymentSync is the synchronous non-streaming version of SendPayment.
+    This RPC is intended to be consumed by clients of the REST proxy.
+    Additionally, this RPC expects the destination's public key and the payment
+    hash (if any) to be encoded as hex strings.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def AddInvoice(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `addinvoice`
+    AddInvoice attempts to add a new invoice to the invoice database. Any
+    duplicated invoices are rejected, therefore all invoices *must* have a
+    unique payment preimage.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def ListInvoices(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `listinvoices`
+    ListInvoices returns a list of all the invoices currently stored within the
+    database. Any active debug invoices are ignored.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def LookupInvoice(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `lookupinvoice`
+    LookupInvoice attemps to look up an invoice according to its payment hash.
+    The passed payment hash *must* be exactly 32 bytes, if not, an error is
+    returned.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def SubscribeInvoices(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """*
+    SubscribeInvoices returns a uni-directional stream (sever -> client) for
+    notifying the client of newly added/settled invoices.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def DecodePayReq(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `decodepayreq`
+    DecodePayReq takes an encoded payment request string and attempts to decode
+    it, returning a full description of the conditions encoded within the
+    payment request.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def ListPayments(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `listpayments`
+    ListPayments returns a list of all outgoing payments.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def DeleteAllPayments(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """*
+    DeleteAllPayments deletes all outgoing payments from DB.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def DescribeGraph(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `describegraph`
+    DescribeGraph returns a description of the latest graph state from the
+    point of view of the node. The graph information is partitioned into two
+    components: all the nodes/vertexes, and all the edges that connect the
+    vertexes themselves.  As this is a directed graph, the edges also contain
+    the node directional specific routing policy which includes: the time lock
+    delta, fee information, etc.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def GetChanInfo(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `getchaninfo`
+    GetChanInfo returns the latest authenticated network announcement for the
+    given channel identified by its channel ID: an 8-byte integer which
+    uniquely identifies the location of transaction's funding output within the
+    blockchain.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def GetNodeInfo(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `getnodeinfo`
+    GetNodeInfo returns the latest advertised, aggregated, and authenticated
+    channel information for the specified node identified by its public key.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def QueryRoutes(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `queryroutes`
+    QueryRoutes attempts to query the daemon's Channel Router for a possible
+    route to a target destination capable of carrying a specific amount of
+    satoshis. The retuned route contains the full details required to craft and
+    send an HTLC, also including the necessary information that should be
+    present within the Sphinx packet encapsualted within the HTLC.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def GetNetworkInfo(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `getnetworkinfo`
+    GetNetworkInfo returns some basic stats about the known channel graph from
+    the point of view of the node.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def StopDaemon(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `stop`
+    StopDaemon will send a shutdown request to the interrupt handler, triggering
+    a graceful shutdown of the daemon.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def SubscribeChannelGraph(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """*
+    SubscribeChannelGraph launches a streaming RPC that allows the caller to
+    receive notifications upon any changes to the channel graph topology from
+    the point of view of the responding node. Events notified include: new
+    nodes coming online, nodes updating their authenticated attributes, new
+    channels being advertised, updates in the routing policy for a directional
+    channel edge, and when channels are closed on-chain.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def SetAlias(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """*
+    SetAlias sets the alias for this node; e.g. "alice"
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def DebugLevel(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """* lncli: `debuglevel`
+    DebugLevel allows a caller to programmatically set the logging verbosity of
+    lnd. The logging can be targeted according to a coarse daemon-wide logging
+    level, or in a granular fashion to specify the logging for a target
+    sub-system.
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def FeeReport(self, request, context):
+    """* lncli: `feereport`
+    FeeReport allows the caller to obtain a report detailing the current fee
+    schedule enforced by the node globally for each channel.
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def UpdateFees(self, request, context):
+    """* lncli: `updatefees`
+    UpdateFees allows the caller to update the fee schedule for all channels
+    globally, or a particular channel.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
@@ -651,6 +861,16 @@ def add_LightningServicer_to_server(servicer, server):
           servicer.DebugLevel,
           request_deserializer=rpc__pb2.DebugLevelRequest.FromString,
           response_serializer=rpc__pb2.DebugLevelResponse.SerializeToString,
+      ),
+      'FeeReport': grpc.unary_unary_rpc_method_handler(
+          servicer.FeeReport,
+          request_deserializer=rpc__pb2.FeeReportRequest.FromString,
+          response_serializer=rpc__pb2.FeeReportResponse.SerializeToString,
+      ),
+      'UpdateFees': grpc.unary_unary_rpc_method_handler(
+          servicer.UpdateFees,
+          request_deserializer=rpc__pb2.FeeUpdateRequest.FromString,
+          response_serializer=rpc__pb2.FeeUpdateResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

@@ -5,12 +5,23 @@ from django.contrib.auth.models import User
 
 import grpc
 
+import os
+
 
 class SignatureBackend(object):
 
     def authenticate(self, request, signature, csrf_token, username=None):
-        channel = grpc.insecure_channel(settings.LND_RPCHOST)
+
+        os.environ["GRPC_SSL_CIPHER_SUITES"] = "HIGH+ECDSA"
+        
+        cert = open('/home/tom/.lnd/tls.cert').read()
+        creds = grpc.ssl_channel_credentials(cert)
+        channel = grpc.secure_channel('localhost:10002', creds)
+        # Create a new 'stub' object that will allow us to interact with our "Bob" lnd node.
         stub = lnrpc.LightningStub(channel)
+
+        # channel = grpc.insecure_channel(settings.LND_RPCHOST)
+        # stub = lnrpc.LightningStub(channel)
 
         verifymessage_resp = stub.VerifyMessage(ln.VerifyMessageRequest(msg=csrf_token, signature=signature))
 

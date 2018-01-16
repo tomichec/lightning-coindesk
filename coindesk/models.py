@@ -7,6 +7,7 @@ from django.contrib import admin
 
 import codecs
 import grpc
+import os
 
 
 class Profile(models.Model):
@@ -76,7 +77,14 @@ class Payment(models.Model):
         Generates a new invoice
         """
         assert self.status == 'pending_invoice', "Already generated invoice"
-        channel = grpc.insecure_channel(settings.LND_RPCHOST)
+
+        os.environ["GRPC_SSL_CIPHER_SUITES"] = "HIGH+ECDSA"
+
+        cert = open('/home/tom/.lnd/tls.cert').read()
+        creds = grpc.ssl_channel_credentials(cert)
+        channel = grpc.secure_channel('localhost:10002', creds)
+        # Create a new 'stub' object that will allow us to interact with our "Bob" lnd node.
+        # channel = grpc.insecure_channel(settings.LND_RPCHOST)
         stub = lnrpc.LightningStub(channel)
 
         add_invoice_resp = stub.AddInvoice(ln.Invoice(value=settings.MIN_VIEW_AMOUNT, memo="User '{}' | ArticleId {}".format(user.username, article.id)))
@@ -93,7 +101,12 @@ class Payment(models.Model):
         if self.status == 'pending_invoice':
             return False
 
-        channel = grpc.insecure_channel(settings.LND_RPCHOST)
+        os.environ["GRPC_SSL_CIPHER_SUITES"] = "HIGH+ECDSA"
+
+        cert = open('/home/tom/.lnd/tls.cert').read()
+        creds = grpc.ssl_channel_credentials(cert)
+        channel = grpc.secure_channel('localhost:10002', creds)
+        # channel = grpc.insecure_channel(settings.LND_RPCHOST)
         stub = lnrpc.LightningStub(channel)
 
         r_hash_base64 = self.r_hash.encode('utf-8')
